@@ -1,0 +1,445 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+	<!-- #Meta start -->
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="apple-mobile-web-app-title" content="Кассир">
+	<!-- #Meta end -->
+
+	<title>Карманный Кассир</title>
+
+	<!-- #Link start -->
+	<link rel="apple-touch-icon" href="images/icon/apple-touch-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="images/icon/apple-touch-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="images/icon/apple-touch-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="images/icon/apple-touch-icon-152x152.png">
+
+	<link rel="shortcut icon" sizes="36x36" href="images/icon/icon-36x36.png">
+	<link rel="shortcut icon" sizes="48x48" href="images/icon/icon-48x48.png">
+	<link rel="shortcut icon" sizes="72x72" href="images/icon/icon-72x72.png">
+	<link rel="shortcut icon" sizes="96x96" href="images/icon/icon-96x96.png">
+	<link rel="shortcut icon" sizes="128x128" href="images/icon/web-icon-128x128.png">
+	<link rel="shortcut icon" sizes="196x196" href="images/icon/web-icon-196x196.png">
+
+	<link rel="stylesheet" type="text/css" media="all" href="https://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css" />
+	<link rel="stylesheet" type="text/css" media="all" href="PhaseOne/css/fonts.css" />
+	<link rel="stylesheet" type="text/css" media="all" href="PhaseOne/css/style.css" />
+	<link rel="stylesheet" type="text/css" media="all" href="PhaseOne/css/colors.css" />
+	<!-- #Link end -->
+	<!-- #Style start -->
+	<!-- #Style end -->
+	<!-- #Script start -->
+	<script>
+		var globalEnableDebugUI = false;
+		var globalEnableDebugOutput = false;
+		var globalPhaseVersion = 1;
+	</script>
+	<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.11.2/jquery-ui.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+	<script src="js/external/jquery.blockUI.js"></script>	
+	<!-- ReSharper disable Html.PathError -->
+	<script src="ts/Tools.js"></script>
+	<script src="ts/Rest.js"></script>
+	<script src="ts/BaseUI.js"></script>
+	<script src="ts/ResourceString.js"></script>
+	<script src="ts/Observer.js"></script>
+	<script src="ts/State.js"></script>
+	<script src="ts/Mvvm.js"></script>
+	<script src="ts/MvvmState.js"></script>
+	<script src="ts/LukStates/EventTypes.js"></script>
+	<script src="ts/LukStates/LukView.js"></script>
+	<script src="ts/LukStates/LukMvvm.js"></script>
+	<script src="ts/LukStates/_-InformMessage/Model.js"></script>
+	<script src="ts/LukStates/_-InformMessage/ViewModel.js"></script>
+	<script src="ts/LukStates/_-InformMessageAndRequest/Model.js"></script>
+	<script src="ts/LukStates/_-InformMessageAndRequest/ViewModel.js"></script>
+	<script src="ts/LukStates/_-MLukErrorAndRepeat/Model.js"></script>
+	<script src="ts/LukStates/_-MLukErrorAndRepeat/ViewModel.js"></script>
+	<script src="ts/LukStates/_-MLukErrorAndContinue/Model.js"></script>
+	<script src="ts/LukStates/_-MLukErrorAndContinue/ViewModel.js"></script>
+	<script src="ts/LukStates/0-MLukBegin/Model.js"></script>
+	<script src="ts/LukStates/0-MLukBegin/ViewModel.js"></script>
+	<script src="ts/LukStates/1-MLukSideChoice/Model.js"></script>
+	<script src="ts/LukStates/1-MLukSideChoice/ViewModel.js"></script>
+	<script src="ts/LukStates/2-MLukNozzleAwaiting/Model.js"></script>
+	<script src="ts/LukStates/2-MLukNozzleAwaiting/State.js"></script>
+	<script src="ts/LukStates/2-MLukNozzleAwaiting/ViewModel.js"></script>
+	<script src="ts/LukStates/3-MLukCostOrVolumeChoice/Model.js"></script>
+	<script src="ts/LukStates/3-MLukCostOrVolumeChoice/ViewModel.js"></script>
+	<script src="ts/LukStates/4-MLukCostOrVolumeAwaiting/Model.js"></script>
+	<script src="ts/LukStates/4-MLukCostOrVolumeAwaiting/ViewModel.js"></script>
+	<script src="ts/LukStates/5_MLukPayAndShip/Model.js"></script>
+	<script src="ts/LukStates/5_MLukPayAndShip/ViewModel.js"></script>
+	<script src="ts/LukStates/6-MLukPayByInvoice/Model.js"></script>
+	<script src="ts/LukStates/6-MLukPayByInvoice/ViewModel.js"></script>
+	<script src="ts/LukStates/7_MLukShipmentStarted/Model.js"></script>
+	<script src="ts/LukStates/7_MLukShipmentStarted/ViewModel.js"></script>
+	<script src="ts/LukStates/8_MLukDone/Model.js"></script>
+	<script src="ts/LukStates/8_MLukDone/ViewModel.js"></script>
+	<script src="ts/LukStates/LukStateMachine.js"></script>
+	<script src="ts/LukStates/9_MLukEnd/Model.js"></script>
+	<script src="ts/LukStates/9_MLukEnd/ViewModel.js"></script>
+	<script src="PhaseZero/ts/GoodsList.js"></script>
+	<script src="PhaseZero/ts/GoodCursor.js"></script>
+	<!-- ReSharper restore Html.PathError -->
+	<script src="js/common.js"></script>
+	<script src="js/debug.js"></script>
+	<script src="js/widget.js"></script>
+	<script src="js/login.js"></script>
+	<script src="js/robokassa_controller.js"></script>
+	<script src="js/accounts.js"></script>
+	<script src="PhaseZero/js/goods.js"></script>
+	<script src="PhaseZero/js/trade.js"></script>
+	<script src="js/ui.js"></script>
+	<script src="js/widgets/robokassa.js"></script>
+	<!-- ReSharper disable Html.PathError -->
+	<!-- <script src="UnitTests/ResourceStringTests.js"></script>
+	<script src="UnitTests/ObserverTests.js"></script>
+	<script src="UnitTests/StateTests.js"></script>	
+	<script src="UnitTests/TestCases.js"></script> -->
+	<!-- ReSharper restore Html.PathError -->
+	<!-- #Script end -->
+</head>
+
+<body>
+	<!-- #iWrapperZone start -->
+	<div id="iWrapperZone">
+
+		<!-- #iScaleableZone start -->
+		<div id="iScaleableZone">
+
+			<!-- #iScaleableZoneHeader start -->
+			<div id="iScaleableZoneHeader">
+				<span id="iScaleableZoneHeaderLinkText">Карманный Кассир</span>
+				<a href="#" id="iScaleableZoneHeaderLink" onclick="ActivateContentP1('iStartAreaView'); return false; ">Карманный Кассир</a>
+			</div>
+			<!-- #iScaleableZoneHeader end -->
+			<!-- #iScaleableZoneMenu start <div id="iScaleableZoneMenu"> -->
+			<!-- #iLoginView start -->
+			<div id="iLoginView">
+				<form class="cCommonForm" action="#" method="post" accept-charset="UTF-8">
+					<div class="cScaleableSubZoneLoginPassword">
+						<input type="text" id="iEditLogin" name="LoginValue" size="15" maxlength="60" class="cInputText" spellcheck="false" autocapitalize="none" autocorrect="off" oninput="MUi.setDisplay('iEditLoginVirtual', 'none')" /><br />
+						<input type="Password" id="iEditPassword" name="PasswordValue" size="15" maxlength="128" class="cInputText" spellcheck="false" autocapitalize="none" autocorrect="off" oninput="MUi.setDisplay('iEditPasswordVirtual', 'none')" />
+						<div class="cScaleableSubZoneLoginPasswordVirtual" onselectstart="return false">
+							<label id="iEditLoginVirtual" onclick="SetFocusTo('iEditLogin');return false; ">логин</label><br />
+							<label id="iEditPasswordVirtual" onclick="SetFocusTo('iEditPassword');return false; ">пароль</label>
+						</div>
+					</div>
+					<input type="submit" name="SubmitAction" value="Войти" class="cSubmitFormButton" onclick="LoginButtonAction(); return false; " />
+				</form>
+			</div>
+			<!-- #iLoginView end -->
+			<!-- #iMainMenuView start -->
+			<div id="iMainMenuView">
+				<a href="#" class="cFirstMenuItem cWideMenuItem" id="iRegestryMenuItem" onclick="ActivateContentP1('iRegistrationAreaView', 'iRegestryMenuItem'); return false;" onmouseover="HighlightMenu('iRegestryMenuItem'); return false;" onmouseout="UnhighlightMenu('iRegestryMenuItem'); return false;">Регистрация</a>
+				<a href="#" class="cFirstMenuItem cMenuOffAtStart" id="iGeneralMenuItem" onclick="ActivateContentP1('iGeneralAreaView', 'iGeneralMenuItem'); return false;" onmouseover="	HighlightMenu('iGeneralMenuItem'); return false;" onmouseout="	UnhighlightMenu('iGeneralMenuItem'); return false;">Налив</a>
+				<a href="#" class="cMenuItem cMenuOffAtStart" id="iProfileMenuItem" onclick="ActivateContentP1('iProfileAreaView', 'iProfileMenuItem'); return false; " onmouseover="HighlightMenu('iProfileMenuItem'); return false;" onmouseout="UnhighlightMenu('iProfileMenuItem'); return false;">Профиль</a>
+				<a href="#" class="cMenuItem cMenuOffAtStart" id="iAccauntsMenuItem" onclick="ActivateContentP1('iAccountsAreaView', 'iAccauntsMenuItem'); return false; " onmouseover="HighlightMenu('iAccauntsMenuItem'); return false;" onmouseout="UnhighlightMenu('iAccauntsMenuItem'); return false;">Счета</a>
+				<a href="#" class="cMenuItem cMenuOffAtStart" id="iCancelMenuItem" onmouseover="HighlightMenu('iCancelMenuItem'); return false;" onmouseout="	UnhighlightMenu('iCancelMenuItem'); return false;">Отмена</a>
+				<a href="#" class="cLogoutMenuItem cMenuOffAtStart" id="iLogoutMenuItem" onclick="LogoutMenuAction(); return false; ">Выход</a>
+			</div>
+			<!-- #iMainMenuView end -->
+			<!-- #iScaleableZoneMenu end </div>  -->
+			<!-- cScaleableZoneContent start -->
+			<div id="iStartAreaView" class="cScaleableZoneContent">
+				<h1>О магазине</h1>
+				Данный сервис позволяет провести оплату ГСМ и сопутствующих товаров на АЗС при помощи современных устройств
+				связи и коммуникаций (сотовый телефон, планшет, кпк и т.д.). Счет может быть пополнен онлайн.
+				<h1>О компании</h1>
+				<p>
+					ООО "Автокард", ИНН: 5262062606, КПП: 526201001, ОГРН/ОГРНИП: 1025203755169,
+					Адрес: 603115, РФ, Нижний Новгород,
+					<a href="http://www.admcity.nnov.ru/map/mymap.php?xmn=21336&ymn=20500&xmx=22097&ymx=21261&text=%CE%CE%CE%20%22%C0%E2%F2%EE%EA%E0%F0%E4%22&x=215&y=222&h=20&r=8&m=3&nh=6423">
+					Генкиной, д.26</a>,
+					оф.1.<br>
+					E-mail: ac-info(знак собаки)ac-nn.ru<br>
+					Тел.: (831) 428-95-23, (831) 421-12-65.<br>
+					Факс: (831) 428-42-53.<br>
+				</p>
+				<p>
+					Наша компания специализируется на технологиях отпуска топлива по пластиковым картам. Более пяти лет мы
+					сотрудничаем с нефтяными компаниями и банками по внедрению данных систем. История нашего создания и опыт
+					нашей работы указывают на то, что мы никогда не продавали просто технологию, мы опирались на интересы
+					партнеров и создавали систему, которая наилучшим образом учитывает специфику предприятий и отвечает их
+					задачам по привлечению клиентов и модернизации технологии отпуска ГСМ на АЗС.
+				</p>
+				<h1>Демонстрация</h1>
+				<b class="cBig">«</b>
+				Целью данного программного комплекса «Карманный кассир» является реализация принципа оплаты
+				на ТРК при помощи современных устройств связи и коммуникаций (сотовый телефон, планшет, кпк и т.д.),
+				в которых есть модуль WiFi в полуавтоматическом режиме. Область применения данного ПО широка в плане развития,
+				т.е. в роли ТРК может выступать любая точка продажи товаров и услуг при соответствующей реализации программной
+				части.
+				<b class="cBig">»</b>
+				<br /><br /><i>Карманный Кассир - Техническое задание</i>
+			</div>
+			<!-- cScaleableZoneContent end -->
+			<!-- cScaleableZoneContent start -->
+			<div id="iRegistrationAreaView" class="cScaleableZoneContent">
+				<h1>Регистрация</h1>
+				Введите регистрационные данные:<br /><br />
+				Имя пользователя:<br />
+				<input type="text" id="iRegisterLogin" size="25" maxlength="60" class="cInputText" spellcheck="false" autocapitalize="none" autocorrect="off" oninput="ValidateRegistration()" /><br />
+				Пароль:<br />
+				<input type="Password" id="iRegisterPassword" size="25" maxlength="128" class="cInputText" spellcheck="false" autocapitalize="none" autocorrect="off" oninput="ValidateRegistration()" /><br />
+				Повторите пароль:<br />
+				<input type="Password" id="iRegisterPassword2" size="25" maxlength="128" class="cInputText" spellcheck="false" autocapitalize="none" autocorrect="off" oninput="ValidateRegistration()" /><br /><br />
+				<button id="iRegisterButton" class="cSubmitFormButton" onclick="RegisterAction()" disabled>Создать</button>
+			</div>
+			<!-- cScaleableZoneContent end -->
+			<!-- cScaleableZoneContent start -->
+			<div id="iAccountsAreaView" class="cScaleableZoneContent">
+				...
+			</div>
+			<!-- cScaleableZoneContent end -->
+			<!-- cScaleableZoneContent start -->
+			<div id="iProfileAreaView" class="cScaleableZoneContent">
+				<h1>Профиль пользователя</h1>
+				Фёдор Михайлович Достоевский
+			</div>
+			<!-- cScaleableZoneContent end -->
+			
+			<!-- cScaleableZoneContent start -->
+			<div id="iGeneralAreaView" class="cScaleableZoneContent">
+				<div id="iGasStationView" class="cScaleableZoneContent">
+				</div>
+				<div id="iHeaderView" class="cScaleableZoneContent">
+				</div>
+				<div id="iFuelView" class="cScaleableZoneContent">
+				</div>
+				<div id="iCommonView" class="cScaleableZoneContent">
+				</div>
+				<div id="iMessageView" class="cScaleableZoneContent">
+				</div>
+				<div id="iLockUiDefaultView" class="cScaleableZoneContent" style="display:none">
+					<img class="cWaitSpinnerImage" src="PhaseOne/images/ajax-loader.gif" width="32" height="32" />
+				</div>
+				<div id="iLockUiView" class="cLockUi"></div>
+			</div>
+
+			<!-- cScaleableZoneContent end -->
+
+			<!-- cScaleableZoneContent start -->
+			<div id="iTP" class="cScaleableZoneContent">
+				<h1 id="iTPHeader"></h1>
+				<div id="iTPCategories"></div>
+				<div class='cScaleableZoneFooter'></div>
+				<b id='iTPGoodsListHeader' class='cBig'></b>
+				<div id="iTPGoodsList"></div><br />
+				<div id='iTPGoodsListInfo' onmouseenter="CGoodCursor.get().activateRightAreaAction(true)" onmouseleave="CGoodCursor.get().deactivateRightAreaAction(true)"></div>
+				<div class='cScaleableZoneFooter'></div>
+				<b id='iTPBasketHeader' class='cBig'></b>
+				<div id="iTPBasket"></div>
+			</div>
+			<!-- cScaleableZoneContent end -->
+			<!-- #iDebugOutput start -->
+			<div onclick="OnSwitchDebugAction();" class="cResourceContainer cScaleableZoneFooter" title="Кликните чтобы активировать Debug Output"><i>Первая демонстрация</i></div>
+			<div id="iDebugOutput" class="cScaleableZoneFooter">
+				<a href="#" id="iTP256MenuItem" class="cCommonLink" onclick="ActivateContentP1('iTP', 'iGeneralMenuItem'); return false; ">Первая фаза разработки</a><br /><br />
+				<pre id="iDebugOutputStream" class="cScaleableZoneFooter"></pre>
+			</div>
+			<!-- #iDebugOutput end -->
+
+		</div>
+		<!-- #iScaleableZone end -->
+		<!-- #iWrapperZoneFooter start -->
+		<div id="iWrapperZoneFooter">
+			<div id="iCommonAbout">&copy; 2014 - 2015 «Карманный Кассир»</div>
+		</div>
+		<!-- #iWrapperZoneFooter end -->
+	</div>
+	<!-- #iWrapperZone end -->
+	<!-- Hidden forms zone start -->
+	<form id="iRobokassaForm" class="cHiddenForm" action='https://auth.robokassa.ru/Merchant/Index.aspx' method=POST>
+		<input id="iRobokassaLogin" type=hidden name=MrchLogin>
+		<input id="iRobokassaSum" type=hidden name=OutSum>
+		<input id="iRobokassaId" type=hidden name=InvId>
+		<input id="iRobokassaDesc" type=hidden name=Desc>
+		<input id="iRobokassaSignature" type=hidden name=SignatureValue>
+	</form>
+	<form id="iRobokassaFormW" class="cHiddenForm" action='https://auth.robokassa.ru/Merchant/Index.aspx' method=POST target="_blank">
+		<input id="iRobokassaLoginW" type=hidden name=MrchLogin>
+		<input id="iRobokassaSumW" type=hidden name=OutSum>
+		<input id="iRobokassaIdW" type=hidden name=InvId>
+		<input id="iRobokassaDescW" type=hidden name=Desc>
+		<input id="iRobokassaSignatureW" type=hidden name=SignatureValue>
+	</form>
+	<!-- Hidden forms zone end -->
+
+	<!-- cResourceContainer start -->
+	<div class="cResourceContainer">
+
+		<div id="iCurrentMenuItemBackgroundColor">See css</div>
+
+		<div id="iMenuItemBackgroundColor">See css</div>
+
+		<div id="iGoodCursorFontColor">See css</div>
+
+		<div id="iGoodRightAreaBackgroundColorActive">See css</div>
+
+		<div id="iGoodBackgroundColor">See css</div>
+
+		<div id="iDialogInvalidResitrationInfo">
+			<div id='iRegistrationInvalid' title='Регистрация'>
+				Пароль или имя пользователя не соответствуют требованиям.
+			</div>
+			<script>
+				$('#iRegistrationInvalid').dialog({
+					autoOpen: false, modal: true,
+					buttons: {
+						'Закрыть': function () { $('#iRegistrationInvalid').dialog('close'); }
+					}
+				});
+			</script>
+		</div>
+
+		<div id="iDialogInvalidLogin">
+			<div id='iLoginInvalid' title='Вход в систему'>
+				Неверный пароль или имя пользователя.
+			</div>
+			<script>
+				$('#iLoginInvalid').dialog({
+					autoOpen: false, modal: true,
+					buttons: {
+						'Закрыть': function () { $('#iLoginInvalid').dialog('close'); }
+					}
+				});
+			</script>
+		</div>
+
+		<div id="iDialogFundSuccessResource">
+			<div id='iAccountFundSuccess' title='Пополнение счета'>
+				Счет пополнен успешно.
+			</div>
+			<script>
+				$('#iAccountFundSuccess').dialog({
+					autoOpen: false, modal: true,
+					buttons: {
+						'Закрыть': function () { $('#iAccountFundSuccess').dialog('close'); }
+					}
+				});
+			</script>
+		</div>
+
+		<div id="iDialogFundFailureResource">
+			<div id='iAccountFndFailure' title='Пополнение счета'>
+				Возникла ошибка во время пополнения счета.
+				<div class="cUiStateError">Счет НЕ БЫЛ пополнен.</div>
+			</div>
+			<script>
+				$('#iAccountFndFailure').dialog({
+					autoOpen: false, modal: true,
+					buttons: {
+						'Закрыть': function () { $('#iAccountFndFailure').dialog('close'); }
+					}
+				});
+			</script>
+		</div>
+
+		<div id="iWaitSpinnerResource">
+			<img class="cWaitSpinnerImage" src="PhaseOne/images/ajax-loader.gif" width="32" height="32" />
+		</div>
+
+		<div id="iLockUiDialogResource">See css</div>
+
+		<div id="iGasStationResource" class="cScaleableZoneContent">
+			<h1>АЗС №_GasStationName_, Колонка №_FuelingPointNumber_</h1>
+		</div>
+
+		<div id="iMessageResource" class="cScaleableZoneContent">
+			<h1>_Header_</h1>
+			<span>_Text_</span>
+		</div>
+
+		<div id="iLinkResource" class="cScaleableZoneContent">
+			<a href="#" id="_NewId_" class="cCommonLink">_Text_</a>
+		</div>
+
+		<div id="iButtonResource" class="cScaleableZoneContent">
+			<br /><button id="_NewId_" class="cSubmitFormButton cInputButtion">_Text_</button>
+		</div>
+
+		<div id="iTableResource" class="cScaleableZoneContent">
+			_Element_
+		</div>
+
+		<div id="iFuelResource" class="cScaleableZoneContent">Топливо: _FuelName_<br><span id="iFuelPriceKop">Цена: _FuelPriceKop_ р.</span><br>Объем: _FuelValueMl_ л<br>Стоимость: _FundsKop_ р.
+		</div>
+
+		<div id="iFuelValueAndFundsResource" class="cScaleableZoneContent">
+			<form class="cBasketForm" action="#" method="post" accept-charset="UTF-8">
+				Объем:<br>
+				<input type="button" id="iFuelValueInc" value="+" class="cSubmitFormButton cInputTextSort cInputTextSortFirs" />
+				<input type="button" id="iFuelValueDec" value="-" class="cSubmitFormButton cInputTextSort" />
+				<input type="text" id="iFuelValue" value="_FuelValueLit_" size="5" maxlength="8" class="cInputText cInputValue cInputTextSortText cInputTextSortLast" spellcheck="false" autocapitalize="none" autocorrect="off" /> л<br>
+				Стоимость:<br>
+				<input type="button" id="iFundsInc" value="+" class="cSubmitFormButton cInputTextSort cInputTextSortFirs" />
+				<input type="button" id="iFundsDec" value="-" class="cSubmitFormButton cInputTextSort" />
+				<input type="text" id="iFunds" value="_FundsRub_" size="5" maxlength="8" class="cInputText cInputValue cInputTextSortText cInputTextSortLast" spellcheck="false" autocapitalize="none" autocorrect="off" /> р.<br>
+			</form>
+		</div>
+
+		<div id="iTPCategoriesResource">{0}<!-- CategoriesPath --><br />{1}<!-- CategoriesList --></div>
+
+		<div id="iTPCategoriesPathResource"><a href="#" class="cCommonLink" onclick='CGoodsList.get().onSelectCategoryFromPathAction(_CategoryIndexInPath_); return false; '>_CategoryName_</a>&nbsp;\&nbsp;</div>
+
+		<div id="iTPCategoriesPathLastResource"><span class="cCommonLinkCurrent">{0}<!-- Category Name -->:</span></div>
+
+		<ul id="iTPCategoriesListResource"><li><a href="#" class="cCommonLink" onclick='CGoodsList.get().onSelectCategoryFromListAction(_CategoryIndexInPath_); return false; '>_Category_</a></li></ul>
+
+		<div id="iTPGoodsListTableResource">
+			<table class='cFormat'>
+				<tr>
+					<td id='iGoodListTableLeft'>
+						<table class='cCommon'>
+							<tbody>
+								<tr>
+								<th>Наименование</th><th>Стоимость</th><th id='iGoodListSpace' class='cGoodCursorBackgraund'></th>
+								</tr>
+								<!-- {0} -->
+							</tbody>
+						</table>
+					</td>
+					<td id='iGoodTableRight' onmouseenter="CGoodCursor.get().activateRightAreaAction(true)" onmouseleave="CGoodCursor.get().deactivateRightAreaAction(true)"></td>
+				</tr>
+			</table>
+		</div>
+		<table>
+			<tbody id="iTPGoodsListTrResource">
+				<tr onclick="CGoodCursor.get().selectAction('_categoryGoodId_',_categoryGoodIndex_)" id='iGoodTr__categoryGoodId_' class='cActive' onmouseenter='	CGoodCursor.get().activateRightAreaAction(_categoryGoodIndex_)' onmouseleave='	CGoodCursor.get().deactivateRightAreaAction(_categoryGoodIndex_)'>
+					<td id='iGoodTd__categoryGoodId__1'>_categoryGoodName_</td>
+					<td id='iGoodTd__categoryGoodId__2'>_categoryGoodPrice_ <i>р.</i></td>
+					<td id='iGoodTd__categoryGoodId__Right' class='cGoodCursorBackgraund'>
+						<div id='iGoodCursor__categoryGoodId_' class='cCursorTriangle'></div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<div id='iTPGoodsListInfoResource'>
+			<i>Товар</i>: {0}<br />
+			<i>Стоимость</i>: {1} <i>р.</i>
+		</div>
+
+		<div id="iBasketSubmitFromResource">
+			<form class="cBasketForm" action="#" method="post" accept-charset="UTF-8">
+				<input type="button" value="+" class="cSubmitFormButton cInputTextSort cInputTextSortFirs" onclick='CGoodCursor.get().incCurrentInBasketAction(); return false; ' />
+				<input type="button" value="-" class="cSubmitFormButton cInputTextSort" onclick='CGoodCursor.get().decCurrentInBasketAction(); return false; ' />
+				<input type="text" id="iNumbersOfGoodItems" value="1" size="3" maxlength="8" pattern="[0-9]" class="cInputText cInputTextSort cInputTextSortText cInputTextSortLast" spellcheck="false" autocapitalize="none" autocorrect="off" /><br>
+			</form>
+			<button id='iToBasketButton' type="submit" class="cSubmitFormButton cInputButtion" onclick="CGoodCursor.get().putCurrentInBasketAction(); return false; ">
+				<table class='cFormat'><tr><td><div class='cRectangleDown'></div><div class='cTriangleDown'></div></td><td><span id='iToBasket'>В корзину</span></td></tr></table>
+			</button>
+		</div>
+
+	</div>
+	<!-- cResourceContainer end -->
+
+</body>
+
+</html>

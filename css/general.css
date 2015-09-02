@@ -1,0 +1,115 @@
+﻿.cResourceContainer,
+.cView,
+#iCancelMenuItem,
+#iGeneralMenuItem,
+#iAccauntsMenuItem,
+#iProfileMenuItem
+{
+	display: none;
+}
+
+.cWaitSpinnerImage
+{
+	margin: 20px 0 0px 0;
+	display: block;
+	margin-left: auto;
+	margin-right: auto
+}
+
+.cLockUi
+{
+	display: none;
+	z-index: 1011;
+	position: fixed;
+	padding: 180px 0px 0px 0px;
+	margin: 0px;
+	width: 100%;
+	height: 100%;
+	top: 0px;
+	left: 0px;
+	text-align: center;
+	color: #000000;
+	border: none;
+	cursor: wait;
+	border-radius: 0px;
+	opacity: 0.9;
+	background-color: #303030;
+}
+
+/* temporary */
+a
+{
+	font-size: 3em;
+	text-shadow: none;
+	text-decoration: none;
+}
+
+h1
+{
+	color: #000000;
+	font-size: 4.2em;
+}
+
+h2
+{
+	font-size: 3em;
+}
+
+table,
+font,
+#iFuelView
+{
+	font-size: 3.2em;
+}
+
+.cLockUi button
+{
+	background: none;
+	width: auto;
+	margin: 20px auto 0px auto;
+}
+
+#iDebugOutput
+{
+	font-size: 2.5em;
+	position: fixed;
+}
+
+a.cCommonLink
+{
+	font-style: italic;
+	padding: 0px 0px 5px 10px;
+	display: block;
+}
+
+table.cCommon
+{
+	font-size: 14px;
+	text-shadow: none;
+}
+
+table.cCommon
+{
+	border: 0 solid;
+	padding: 0 0 0 0;
+	vertical-align: top;
+	text-align: left;
+	width: 100%;
+	border-collapse: collapse;
+}
+
+table.cCommon th
+{
+	padding: 0 5px 0 5px;
+	border-right: 1px solid;
+	border-bottom: 1px solid;
+	height: 24px;
+}
+
+table.cCommon td
+{
+	padding: 0 10px 0 10px;
+	border-right: 1px solid;
+	border-bottom: 1px solid;
+	height: 24px;
+}

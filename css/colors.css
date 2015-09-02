@@ -1,0 +1,81 @@
+.cFront,
+.cFront input[type='submit'],
+.cFront input[type='text'],
+.cFront input[type='password'],
+.cFront input[type='button']
+{
+	color: #FFFFFF;
+	background: none;
+}
+
+.cLukGwr
+{
+	background-color: #007896;
+}
+
+.cNotFront
+{
+	color: #000000;
+	background: #FFFFFF;
+}
+
+.ui-content .text
+{
+	color: #929292;
+}
+
+.ui-content .button-more:hover,
+.ui-content .button-more:focus
+{
+	color: #007AFF;
+}
+
+.ui-footer .buttons .ui-link.active
+{
+	color: #007AFF;
+}
+
+.cFront .ui-link
+{
+	color: #929292 !important;
+}
+
+.cFront .ui-link:hover
+{
+	color: #ffffff;
+}
+
+.cLockUi h1,
+.cLockUi
+{
+	color: #ffffff;
+	text-shadow: none;
+}
+
+.cLockUi button
+{
+	color: #FFFFFF;
+	background-color: #121212;
+}
+
+table.cCommon th
+{
+	border-color: #FFFFFF;
+	color: #FFFFFF;
+	background-color: #969696;
+}
+
+table.cCommon td
+{
+	border-color: #FFFFFF;
+}
+
+table.cCommon tr:nth-child(odd)
+{
+	background-color: #D6D6D6;
+}
+
+table.cCommon tr:nth-child(even)
+{
+	background-color: #F9F9F9;
+}

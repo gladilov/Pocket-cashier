@@ -1,0 +1,628 @@
+﻿body
+{
+	margin: 0;
+	padding: 2px;
+	border: 0;
+	outline: 0;
+}
+
+a
+{
+	text-decoration: none;
+}
+
+#iWrapperZone
+{
+	margin: 0;
+	padding: 0 0 0 0;
+	border: 0;
+	outline: 0;
+	border-top: 21px solid;
+}
+
+#iScaleableZone
+{
+	padding: 0 0 10px 0;
+	position: relative;
+	width: 650px;
+	margin: 0 auto;
+}
+
+#iScaleableZoneHeader
+{
+	padding: 0 15px 0 15px;
+	border-top: 1px solid;
+	height: 83px;
+}
+
+#iLoginView
+{
+	padding: 0 0 0 0;
+	margin: 0 0 0 0;
+	position: absolute;
+	top: 25px;
+	right: 15px;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	z-index: 2;
+}
+
+#iMainMenuView
+{
+	padding: 0 0 0 0;
+	height: 20px;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+#iMainMenuView a
+{
+	text-decoration: none;
+	border-right: 1px solid;
+	padding: 0 8px 0 8px;
+	width: 64px;
+	height: 20px;
+	display: block;
+	float: left;
+} /*Длинна padding 10px + 10px + width 60px = 80px*/
+
+#iMainMenuView a.cWideMenuItem
+{
+	width: 96px;
+}
+
+#iMainMenuView a.cFirstMenuItem
+{
+	border-left: 1px solid;
+	margin: 0 0 0 18px;
+}
+
+#iMainMenuView a.cLogoutMenuItem
+{
+	border-left: 1px solid;
+	margin: 0 15px 0 0;
+	float: right;
+}
+
+.cScaleableZoneContent
+{
+	padding: 20px 15px 10px 20px;
+	margin: 0 0 15px 0;
+}
+
+h1.cScaleableZoneContent
+{
+	display: block;
+	-webkit-margin-before: 0;
+	-webkit-margin-after: 10px;
+	-webkit-margin-start: 0;
+	-webkit-margin-end: 0;
+}
+
+.cScaleableZoneFooter
+{
+	padding: 0 10px 18px 10px;
+	border-top: 1px solid;
+}
+
+#iWrapperZoneFooter
+{
+	padding: 10px 0 10px 0;
+	border-top: 1px solid;
+	position: absolute;
+	bottom: 0;
+	z-index: -1;
+	width: 100%;
+	overflow: hidden;
+}
+
+#iCommonAbout
+{
+	text-align: center;
+}
+
+input
+{
+	-webkit-appearance: none;
+	-webkit-border-radius: 0;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.cScaleableSubZoneLoginPassword
+{
+	height: 59px;
+}
+
+.cScaleableSubZoneLoginPasswordVirtual
+{
+	position: relative;
+	top: -41px;
+	right: 0;
+	left: 5px;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	pointer-events: none;
+	z-index: 1;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	user-select: none;
+}
+
+#iEditPasswordVirtual
+{
+	position: relative;
+	top: 2px;
+}
+
+.cCommonForm
+{
+	padding: 0 0 0 0;
+}
+.cBasketForm
+{
+	padding: 0 0 0 0;
+}
+
+input.cInputText
+{
+	padding: 0 0 0 5px;
+	margin: 0 0 2px 0;
+	width: 100px;
+	border: 1px solid;
+	height: 20px;
+}
+
+input.cInputValue
+{
+	height: 24px;
+	width: 48px;
+	padding: 0 0 0 0;
+	margin: 0 0 0 0;
+	border: 1px solid;
+}
+
+input.cInputTextSort
+{
+	width: 24px;
+	height: 24px;
+	padding: 0 0 0 0;
+	margin: 0 0 0 0;
+	border: 1px solid;
+}
+
+button.cInputButtion
+{
+	height: 24px;
+	border: 1px solid;
+	padding: 0 0 0 6px;
+}
+
+input.cInputTextSortFirs
+{
+	margin: 0 2px 0 0;
+}
+
+input.cInputTextSortLast
+{
+	margin: 0 0 26px 14px;
+}
+
+
+#iEditPassword
+{
+	margin: 0 0 0 0;
+}
+
+.cSubmitFormButton
+{
+	padding: 0 0 0 0;
+	height: 20px;
+	margin: 0 0 0 0;
+	width: 100px;
+	border-bottom: 0 solid;
+	border-top: 0 solid;
+	border-right: 1px solid;
+	border-left: 1px solid;
+}
+
+table.cFormat
+{
+	width: 100%;
+	border-collapse: collapse;
+	outline: 0;
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+	vertical-align: top;
+}
+
+#iGoodListTableLeft
+{
+	padding: 0 0 0 0;
+}
+
+.cActive
+{
+	cursor: pointer;
+}
+
+#iGoodListSpace
+{
+	width: 24px;
+	padding: 0 0 0 0;
+}
+
+#iGoodTableRight
+{
+	padding: 24px 10px 24px 10px;
+	width: 96px;
+	vertical-align: top;
+	margin: 0 0 0 0;
+}
+
+#iTPGoodsListInfo
+{
+	padding: 24px 0 24px 10px;
+	margin: 0 0 0 0;
+}
+
+table.cCommon th.cGoodCursorBackgraund,
+table.cCommon td.cGoodCursorBackgraund
+{
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+	border: 0 solid;
+}
+
+table.cCommon th.cRemove,
+table.cCommon td.cRemove
+{
+	width: 24px !important;
+	padding: 0 0 0 0 !important;
+	text-align: center !important;
+}
+
+table.cCommon
+{
+	border: 0 solid;
+	padding: 0 0 0 0;
+	vertical-align: top;
+	text-align: left;
+	width: 100%;
+	border-collapse: collapse;
+}
+
+table.cCommon th
+{
+	padding: 0 5px 0 5px;
+	border-right: 1px solid;
+	border-bottom: 1px solid;
+	height: 24px;
+}
+
+table.cCommon td
+{
+	padding: 0 10px 0 10px;
+	border-right: 1px solid;
+	border-bottom: 1px solid;
+	height: 24px;
+}
+
+.cCursorTriangle
+{
+	width: 12px;
+	height: 0;
+	border-top: 12px solid transparent;
+	border-right: 12px solid;
+	border-bottom: 12px solid transparent;
+	display: none;
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+}
+
+.cTriangleDown
+{
+	width: 0;
+	height: 0;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-top: 5px solid;
+}
+
+.cRectangleDown
+{
+	width: 3px;
+	height: 5px;
+	margin: 0 0 0 4px;
+	padding: 0 0 0 0;
+}
+
+.cTriangleRight
+{
+	width: 0;
+	height: 0;
+	border-top: 10px solid transparent;
+	border-left: 10px solid;
+	border-bottom: 10px solid transparent;
+}
+
+.cRobokassaButton
+{
+	cursor: pointer;
+}
+
+.cHiddenForm
+{
+	display: none;
+}
+
+.cTemp
+{
+	display: none;
+}
+
+/* Disable/Enable items start */
+.cResourceContainer,
+.cScaleableZoneContent,
+#iMainMenuView a.cMenuOffAtStart,
+#iScaleableZoneHeaderLink
+{
+	display: none;
+}
+.commonTerminal
+{
+	display: block;
+}
+.mobileTerminal
+{
+	display: none;
+}
+#iDebugOutput
+{
+	display: none;
+}
+/* Disable/Enable items end */
+
+.cLockUi
+{
+	z-index: 1011;
+	position: relative;
+	padding: 15px;
+	margin: 0px 10px 0px 10px;
+	width: 93%;
+	top: 40%;
+	text-align: center;
+	color: #000000;
+	border: none;
+	cursor: wait;
+	border-radius: 3px;
+	opacity: 0.9;
+	background-color: #f0f0f0;
+}
+
+.cWaitSpinnerImage
+{
+	margin: 20px 0 20px 0;
+	display: block;
+	margin-left: auto;
+	margin-right: auto
+}
+
+#iLockUiDialogResource
+{
+	border: 'none';
+	padding: '15px';
+	backgroundColor: '#ffffff';
+	'-webkit-border-radius': '10px';	/* Safari, Chrome */
+	'-moz-border-radius': '10px';		/* Firefox */
+	'border-radius': '10px';			/* CSS3 */
+	opacity: .9;
+	color: '#000000'
+}
+/* ReSharper restore DeclarationIsEmpty */
+/* jQuery blockUI plugin end */
+
+/* Маленький экран 640px */
+
+@media only screen and (max-width: 620px) /* Маленький экран: Размер выбран как 640 минус погрешность. Уменьшаем элементы. */
+{
+	#iScaleableZoneHeader
+	{
+		height: 40px;
+	}
+	#iMainMenuView a.cFirstMenuItem
+	{
+		margin: 0 0 0 16px;
+	}
+	.cCommonForm
+	{
+		padding: 0 15px 0 0;
+		float: right;
+	} /*Коррекция отступа для соответствия размеру шрифта в iScaleableZoneHeader */
+	#iScaleableZone
+	{
+		width: 100%;
+	}
+	#iLoginView
+	{
+		padding: 10px 0 0 0;
+		position: static;
+		top: 0;
+		right: 0;
+		height: 69px;
+	}
+}
+
+/* Мобильная версия */
+
+@media only screen and (max-width: 356px)	/* Мобильная версия: Размер зависит от длинны меню. Убираем отступы, добавляем контур кнопок. */
+{
+	.cLockUi
+	{
+		position: fixed;
+		width: 80%;
+		top: 20%;
+	}
+	.cScaleableSubZoneLoginPasswordVirtual
+	{
+		top: -50px;
+	}
+	input.cInputText
+	{
+		height: 28px;
+	}
+	#iLoginView
+	{
+		height: 78px;
+	}
+	/* Длинна элемента меню 80px * Колличество элементов + cFirstMenuItem margin left 18px + cLogoutMenuItem margin right 15x  = 80*4 + 33 = 353, + 3px запас. */
+	#iMainMenuView
+	{
+		height: 38px;
+	}	/* Одна линия меню */
+	#iMainMenuView a
+	{
+		height: 24px;
+		padding: 4px 8px 0 8px;
+	}
+	#iMainMenuView a.cLogoutMenuItem
+	{
+		float: left;
+	}
+	.cSubmitFormButton,
+	#iMainMenuView a,
+	#iMainMenuView a.cFirstMenuItem,
+	#iMainMenuView a.cLogoutMenuItem
+	{
+		border: 1px solid;
+		margin: 4px 1px 0 2px;
+	}
+	.cSubmitFormButton
+	{
+		height: 29px;
+		margin: 12px 1px 0 2px;
+	}
+
+	#iScaleableZoneHeader
+	{
+		padding: 0 13px 0 10px;
+	}
+	#iWrapperZone
+	{
+		border-top: 21px solid;
+	}
+
+	.cScaleableZoneContent
+	{
+		padding: 10px 4px 5px 4px;
+		margin: 0 0 10px 0;
+	}
+
+	/* Disable/Enable items */
+	#iScaleableZoneHeader
+	{
+		display: none;
+	}
+
+	/* Расширение таблиц */
+	#iGoodTableRight
+	{
+		padding: 36px 4px 32px 4px;
+		width: 32px;
+	}
+	#iGoodListSpace
+	{
+		width: 32px;
+	}
+	table.cCommon th.cRemove,
+	table.cCommon td.cRemove
+	{
+		width: 32px !important;
+	}
+	table.cCommon th
+	{
+		height: 32px;
+	}
+	table.cCommon td
+	{
+		height: 32px;
+	}
+	input.cInputValue
+	{
+		width: 64px;
+		height: 32px;
+		margin: 0 0 7px 0;
+	}
+	input.cInputTextSort
+	{
+		width: 32px;
+		height: 32px;
+		margin: 0 0 7px 0;
+	}
+	input.cInputTextSortFirs
+	{
+		margin: 0 0 5px 0;
+	}
+	input.cInputTextSortLast
+	{
+		margin: 0 0 0 0;
+	}
+	.cCursorTriangle
+	{
+		width: 16px;
+		height: 0;
+		border-top: 16px solid transparent;
+		border-right: 16px solid;
+		border-bottom: 16px solid transparent;
+		display: none;
+	}
+	.cTriangleRight
+	{
+		border-top: 14px solid transparent;
+		border-left: 14px solid;
+		border-bottom: 14px solid transparent;
+	}
+	#iToBasket
+	{
+		display: none;
+	}
+	#iToBasketButton
+	{
+		width: 32px;
+		height: 32px;
+		margin: 5px 0 0 0;
+	}
+
+	.commonTerminal
+	{
+		display: none;
+	}
+	.mobileTerminal
+	{
+		display: block;
+	}
+}
+
+@media only screen and (max-width: 339px) /* Мобильная версия: Размер зависит от длинны меню. Добавляем строчку меню. */
+{
+	#iMainMenuView
+	{
+		height: 72px;
+	} /* Две линии меню */
+}
+
+@media only screen and (max-width: 245px) /* Мобильная версия: Размер зависит от длинны меню. Увеличиваем зону Header. */
+{
+	#iScaleableZoneHeader
+	{
+		height: 95px;
+	}
+}
+
+@media only screen and (max-width: 169px) /* Мобильная версия: Размер зависит от длинны меню. Добавляем строчку меню. */
+{
+	#iMainMenuView
+	{
+		height: 140px;
+	} /* Четыре линии меню */
+}

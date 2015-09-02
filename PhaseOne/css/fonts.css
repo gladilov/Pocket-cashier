@@ -1,0 +1,122 @@
+a:link,
+a:visited,
+a:hover,
+a:active,
+a:focus
+{
+	text-decoration: none;
+}
+
+body,
+#iWrapperZone,
+.cScaleableZoneContent
+{
+	font-size: 14px;
+	font-weight: normal;
+	font-style: normal;
+	line-height: 1.5;
+	word-wrap: break-word;
+	font-family: Helvetica, Arial;
+}
+
+
+
+#iScaleableZoneHeader
+{
+	font-size: 55px;
+	font-weight: bold;
+	letter-spacing: -2px;
+	word-wrap: normal;
+}
+
+#iMainMenuView,
+#iMainMenuView a
+{
+	font-size: 13px;
+}
+
+b.cBig
+{
+	font-size: 18px;
+	font-weight: bold;
+	letter-spacing: -1px;
+	line-height: 0.5;
+}
+
+a.cCommonLink
+{
+	font-style: italic;
+	padding: 0px 0px 5px 10px;
+	display: block;
+}
+
+#iCommonAbout
+{
+	font-size: 0.9em;
+}
+
+#iLoginView
+{
+	font-size: 13px;
+}
+
+input
+{
+	font-size: 13px;
+	font-family: Helvetica, Arial;
+} /*Firefox only*/
+
+table.cCommon
+{
+	font-size: 13px;
+}
+
+table.cCommon th
+{
+	font-style: italic;
+}
+
+table.cCommon td:nth-child(odd)
+{
+	font-style: italic;
+}
+
+table.cCommon td:nth-child(even)
+{
+	font-style: normal;
+}
+
+table.cCommon th.cRemove,
+table.cCommon td.cRemove
+{
+	font-family: Verdana, Arial !important;
+	font-weight: bold !important;
+	font-style: normal !important;
+}
+
+div.SmallFont
+{
+	font-weight: bold;
+}
+
+@media only screen and (max-width: 620px) /* Маленький экран: Размер выбран как 640 минус погрешность. Уменьшаем элементы. */
+{
+	#iScaleableZoneHeader
+	{
+		font-size: 25px;
+	}
+	body,
+	#iWrapperZone,
+	#cScaleableZoneContent
+	{
+		font-size: 12px;
+	}
+}
+
+@media only screen and (max-width: 356px)	/* Мобильная версия: Размер зависит от длинны меню. Убираем отступы, добавляем строчку меню и контур кнопок. */
+{
+	#iScaleableZone  h1
+	{
+		font-size: 15px;
+	}
+}

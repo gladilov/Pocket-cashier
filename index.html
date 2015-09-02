@@ -1,0 +1,540 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<!-- #Meta start -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<meta name="apple-mobile-web-app-title" content="Кассир">
+		<meta name="mobile-web-app-capable" content="yes">
+	<!-- #Meta end -->
+
+	<title>Карманный кассир</title>
+
+	<!-- #Link start -->
+		<link rel="apple-touch-icon" href="images/icon/apple-touch-icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="images/icon/apple-touch-icon-76x76.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="images/icon/apple-touch-icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="images/icon/apple-touch-icon-152x152.png">
+
+		<link rel="shortcut icon" sizes="36x36" href="images/icon/icon-36x36.png">
+		<link rel="shortcut icon" sizes="48x48" href="images/icon/icon-48x48.png">
+		<link rel="shortcut icon" sizes="72x72" href="images/icon/icon-72x72.png">
+		<link rel="shortcut icon" sizes="96x96" href="images/icon/icon-96x96.png">
+		<link rel="shortcut icon" sizes="128x128" href="images/icon/web-icon-128x128.png">
+		<link rel="shortcut icon" sizes="196x196" href="images/icon/web-icon-196x196.png">
+
+		<!-- iPhone + Android startup-image -->
+		<link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 1)" href="images/startup-image/apple-touch-startup-image-320x460.png">
+		<!-- iPhone (Retina) startup-image -->
+		<link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)" href="images/startup-image/apple-touch-startup-image-640x920.png">
+		<!-- iPhone 5 startup-image -->
+		<link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" href="images/startup-image/apple-touch-startup-image-640x1096.png">
+
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+		<link rel="stylesheet" href="css/style.css"/>
+	<!-- #Link end -->
+
+	<!-- #Script start -->
+		<script>
+			var globalEnableDebugUI = false;
+			var globalEnableDebugOutput = true;
+			var globalPhaseVersion = 2;
+		</script>
+
+		<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+		<script src="https://code.jquery.com/ui/1.11.2/jquery-ui.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+		<script src="js/external/jquery.blockUI.js"></script>
+		<script src="js/external/jquery.mousewheel.min.js"></script>
+		<script src="js/external/jquery.jscrollpane.min.js"></script>
+		<script src="js/script.js"></script>
+		<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+		<script src="https://code.createjs.com/easeljs-0.7.1.min.js"></script>
+		<script src="https://code.createjs.com/tweenjs-0.5.1.min.js"></script>
+		<script src="https://code.createjs.com/movieclip-0.7.1.min.js"></script>
+		<script src="https://code.createjs.com/preloadjs-0.4.1.min.js"></script>
+		<script src="js/animation.js"></script>
+
+		<!-- ReSharper disable Html.PathError -->
+		<script src="ts/Tools.js"></script>
+		<script src="ts/Rest.js"></script>
+		<script src="ts/BaseUI.js"></script>
+		<script src="ts/ResourceString.js"></script>
+		<script src="ts/Observer.js"></script>
+		<script src="ts/State.js"></script>
+		<script src="ts/Mvvm.js"></script>
+		<script src="ts/MvvmState.js"></script>
+		<script src="ts/LukStates/EventTypes.js"></script>
+		<script src="ts/LukStates/LukView.js"></script>
+		<script src="ts/LukStates/LukMvvm.js"></script>
+		<script src="ts/LukStates/_-InformMessage/Model.js"></script>
+		<script src="ts/LukStates/_-InformMessage/ViewModel.js"></script>
+		<script src="ts/LukStates/_-InformMessageAndRequest/Model.js"></script>
+		<script src="ts/LukStates/_-InformMessageAndRequest/ViewModel.js"></script>
+		<script src="ts/LukStates/_-MLukErrorAndRepeat/Model.js"></script>
+		<script src="ts/LukStates/_-MLukErrorAndRepeat/ViewModel.js"></script>
+		<script src="ts/LukStates/_-MLukErrorAndContinue/Model.js"></script>
+		<script src="ts/LukStates/_-MLukErrorAndContinue/ViewModel.js"></script>
+		<script src="ts/LukStates/0-MLukBegin/Model.js"></script>
+		<script src="ts/LukStates/0-MLukBegin/ViewModel.js"></script>
+		<script src="ts/LukStates/1-MLukSideChoice/Model.js"></script>
+		<script src="ts/LukStates/1-MLukSideChoice/ViewModel.js"></script>
+		<script src="ts/LukStates/2-MLukNozzleAwaiting/Model.js"></script>
+		<script src="ts/LukStates/2-MLukNozzleAwaiting/State.js"></script>
+		<script src="ts/LukStates/2-MLukNozzleAwaiting/ViewModel.js"></script>
+		<script src="ts/LukStates/3-MLukCostOrVolumeChoice/Model.js"></script>
+		<script src="ts/LukStates/3-MLukCostOrVolumeChoice/ViewModel.js"></script>
+		<script src="ts/LukStates/4-MLukCostOrVolumeAwaiting/Model.js"></script>
+		<script src="ts/LukStates/4-MLukCostOrVolumeAwaiting/ViewModel.js"></script>
+		<script src="ts/LukStates/5_MLukPayAndShip/Model.js"></script>
+		<script src="ts/LukStates/5_MLukPayAndShip/ViewModel.js"></script>
+		<script src="ts/LukStates/6-MLukPayByInvoice/Model.js"></script>
+		<script src="ts/LukStates/6-MLukPayByInvoice/ViewModel.js"></script>
+		<script src="ts/LukStates/7_MLukShipmentStarted/Model.js"></script>
+		<script src="ts/LukStates/7_MLukShipmentStarted/ViewModel.js"></script>
+		<script src="ts/LukStates/8_MLukDone/Model.js"></script>
+		<script src="ts/LukStates/8_MLukDone/ViewModel.js"></script>
+		<script src="ts/LukStates/LukStateMachine.js"></script>
+		<script src="ts/LukStates/9_MLukEnd/Model.js"></script>
+		<script src="ts/LukStates/9_MLukEnd/ViewModel.js"></script>
+
+		<!-- ReSharper restore Html.PathError -->
+		<script src="js/common.js"></script>
+		<script src="js/debug.js"></script>
+		<script src="js/widget.js"></script>
+		<script src="js/login.js"></script>
+		<script src="js/robokassa_controller.js"></script>
+		<script src="js/accounts.js"></script>
+		<script src="js/ui.js"></script>
+		<script src="js/widgets/robokassa.js"></script>
+
+		<!-- ReSharper disable Html.PathError -->
+		<script src="UnitTests/ResourceStringTests.js"></script>
+		<script src="UnitTests/ObserverTests.js"></script>
+		<script src="UnitTests/StateTests.js"></script>	
+		<script src="UnitTests/TestCases.js"></script>
+		<!-- ReSharper restore Html.PathError -->
+
+	<!-- #Script end -->
+</head>
+
+<body onload="canvasInit();">
+	
+	<div data-role="page" class="cFront" data-title="Карманный Кассир" data-transition="slide" id="iLoginPageView">
+		<div class="cLukGwr"></div>
+
+		<div data-role="content">
+			<img src="images/logo.png" class="app-logo app-logo-front" width="75" height="75">
+			<div class="app-name app-name-front">Карманный<span class="thin">Кассир</span></div>
+			<div class="form-account-name">Вход</div>
+			<form id="iLoginView" class="form-account" action="#iIndexPageView" onsubmit="LoginButtonAction(); return false;" method="post" accept-charset="UTF-8">
+				<div class="form-item-wrap mail">
+					<div data-role="fieldcontain" class="form-item form-item-mail ui-hide-label">
+						<label for="mail">Имя пользователя:</label>
+						<input data-role="none" type="text" id="iEditLogin" name="LoginValue" value="" class="form-text" placeholder="Имя пользователя" size="15" maxlength="60" spellcheck="false" autocapitalize="none" autocorrect="off" />
+					</div>
+				</div>
+				<div class="form-item-wrap pass">
+					<div data-role="fieldcontain" class="form-item form-item-mail ui-hide-label">
+						<label for="pass">Пароль:</label>
+						<input data-role="none" type="password" id="iEditPassword" name="PasswordValue" value="" class="form-text" placeholder="Пароль" size="15" maxlength="128" spellcheck="false" autocapitalize="none" autocorrect="off" />
+					</div>
+				</div>
+				<div class="form-actions">
+					<input data-role="none" type="submit" name="LoginButton" class="form-submit" value="Войти" />
+				</div>
+			</form>
+			<a class="cLink" href="#iRegistrationPageView">Регистрация</a>
+		</div>
+
+		<div id="iDialogInvalidLogin" data-role="popup" data-overlay-theme="a" data-theme="c" class="ui-corner-all">
+			<div data-role="header" class="ui-corner-top" data-theme="a">
+				<h2><font>Вход в систему</font></h2>
+			</div>
+			<div data-role="content" class="ui-corner-bottom ui-content" data-theme="d">
+				<p><font>Неверный пароль или имя пользователя.</font></p>
+				<a href="#" data-rel="back" data-role="button" data-inline="true" data-icon="delete">Закрыть</a>
+			</div>
+		</div>
+
+	</div>
+
+	<div data-role="page" class="cFront" data-title="Карманный Кассир" data-transition="slide" id="iRegistrationPageView">
+		<div class="cLukGwr"></div>
+
+		<div data-role="content">
+			<img src="images/logo.png" class="app-logo app-logo-front" width="75" height="75">
+			<div class="app-name app-name-front">Карманный<span class="thin">Кассир</span></div>
+			<div class="form-account-name">Создание учетной записи</div>
+			<form class="form-account" action="#iIndexPageView" onsubmit="RegisterAction()" method="post">
+				<div class="form-item-wrap mail">
+					<div data-role="fieldcontain" class="form-item form-item-mail ui-hide-label">
+						<label for="mail">Имя пользователя:</label>
+						<input data-role="none" type="text" id="iRegisterLogin" name="mail" value="" class="form-text" placeholder="Имя пользователя" size="25" maxlength="60" spellcheck="false" autocapitalize="none" autocorrect="off" oninput="ValidateRegistration()" />
+					</div>
+				</div>
+				<div class="form-item-wrap pass">
+					<div data-role="fieldcontain" class="form-item form-item-pass ui-hide-label">
+						<label for="pass1">Пароль:</label>
+						<input data-role="none" type="password" id="iRegisterPassword" name="pass1" value="" class="form-text" placeholder="Пароль" size="25" maxlength="128" spellcheck="false" autocapitalize="none" autocorrect="off" oninput="ValidateRegistration()" />
+					</div>
+					<div data-role="fieldcontain" class="form-item form-item-pass ui-hide-label">
+						<label for="pass2">Пароль еще раз:</label>
+						<input data-role="none" type="password" id="iRegisterPassword2" name="pass2" value="" class="form-text" placeholder="Пароль еще раз" size="25" maxlength="128" spellcheck="false" autocapitalize="none" autocorrect="off" oninput="ValidateRegistration()" />
+					</div>
+				</div>
+				<div class="form-actions">
+					<input id="iRegisterButton" data-role="none" type="submit" name="op" class="form-submit" value=" создать" />
+				</div>
+			</form>
+			<a class="cLink" href="#iLoginPageView" data-direction="reverse">Отмена</a>
+		</div>
+
+		<footer data-role="footer" data-position="fixed">
+			<div class="footer-text">Создавая учетную запись, вы соглашаетесь <span class="bold">с условиями использования</span></div>
+		</footer>
+
+		<div id="iDialogInvalidResitrationInfo" data-role="popup" data-overlay-theme="a" data-theme="c" class="ui-corner-all">
+			<div data-role="header" class="ui-corner-top" data-theme="a">
+				<h2><font>Регистрация</font></h2>
+			</div>
+			<div data-role="content" class="ui-corner-bottom ui-content" data-theme="d">
+				<p><font>Пароль или имя пользователя не соответствуют требованиям.</font></p>
+				<a href="#" data-rel="back" data-role="button" data-inline="true" data-icon="delete">Закрыть</a>
+			</div>
+		</div>
+
+	</div>
+
+	<div data-role="page" class="cNotFront" id="iIndexPageView">
+		<div data-role="content">
+
+			<div class="app-name app-name-page">
+				<img onclick="OnSwitchDebugAction();" src="images/logo.png" class="app-logo" width="25" height="25" valign="middle" />
+				Карманный<span class="thin">Кассир</span>
+			</div>
+
+			<div class="page-image-wrap">
+				<img src="images/page-image.jpg" class="page-image" width="640" />
+			</div>
+
+			<div id="iGeneralAreaView" class="cView">
+				<div id="iGasStationView" class="cView">
+				</div>
+				<div id="iHeaderView" class="cView">
+				</div>
+				<div id="iFuelView" class="cView">
+				</div>
+				<div id="iCommonView" class="cView">
+				</div>
+				<div id="iNozzleAwaitingAnimationView" class="cView">
+					<div class="animation">
+						<canvas id="canvas" width="225" height="79" style="background-color:#FFFFFF"></canvas>
+					</div>
+
+					<div class="text light black">
+						Убедитесь, что заправочный пистолет вставлен в автомобиль.
+					</div>
+				</div>
+				<div id="iMessageView" class="cView">
+				</div>
+				<div id="iLockUiDefaultView" class="cView">
+					<img class="cWaitSpinnerImage" src="images/ajax-loader.gif" width="32" height="32" />
+				</div>
+			</div>
+
+			<div id="iAccountsAreaView" class="cView">
+				...
+			</div>
+
+			<div id="iProfileAreaView" class="cView">
+				<div class="text light">Профиль пользователя</div>
+				<div class="text medium">Фёдор Михайлович Достоевский</div>
+				<button id="iLogoutMenuItem" data-role="button" class="button-more" onclick="LogoutMenuAction();">Выход</button>
+			</div>				
+
+			<div id="iDialogFundSuccess" data-role="popup" data-overlay-theme="a" data-theme="c" class="ui-corner-all">
+				<div data-role="header" class="ui-corner-top" data-theme="a">
+					<h2><font>Пополнение счета</font></h2>
+				</div>
+				<div data-role="content" class="ui-corner-bottom ui-content" data-theme="d">
+					<p><font>Счет пополнен успешно.</font></p>
+					<a href="#" data-rel="back" data-role="button" data-inline="true" data-icon="delete">Закрыть</a>
+				</div>
+			</div>
+
+			<div id="iDialogFundFailure" data-role="popup" data-overlay-theme="a" data-theme="c" class="ui-corner-all">
+				<div data-role="header" class="ui-corner-top" data-theme="a">
+					<h2><font>Пополнение счета</font></h2>
+				</div>
+				<div data-role="content" class="ui-corner-bottom ui-content" data-theme="d">
+					<p><font>Возникла ошибка во время пополнения счета.</font></p>
+					<a href="#" data-rel="back" data-role="button" data-inline="true" data-icon="delete">Закрыть</a>
+				</div>
+			</div>
+
+		</div>
+
+		<footer data-role="footer" data-position="fixed">
+			<a href="#" data-role="none" class="toggle-link close"></a>
+			<div id="iMainMenuView" data-role="controlgroup" class="buttons">
+				<a href="#" id="iGeneralMenuItem" class="filling active" data-role="button"><span class="icon"></span>Налив</a>
+				<a href="#" id="iAccauntsMenuItem" class="balance" data-role="button"><span class="icon"></span>Баланс</a>
+				<a href="#" id="iProfileMenuItem" class="setting" data-role="button"><span class="icon"></span>Настройки</a>
+				<a href="#" id="iCancelMenuItem" class="history" data-role="button"><span class="icon"></span>Отмена</a>
+			</div>
+		</footer>
+	</div>
+	
+	<div data-role="page" class="cNotFront" id="iChoiceGasStationsPageView">
+		<div data-role="content">
+			<div class="app-name app-name-page">
+				<img onclick="OnSwitchDebugAction();" src="images/logo.png" class="app-logo" width="25" height="25" valign="middle" />
+				Карманный<span class="thin">Кассир</span>
+			</div>
+
+			<div class="page-image-wrap">
+				<img src="images/page-image.jpg" class="page-image" width="640" />
+			</div>
+      
+			<div id="iChoiceGasStationsAreaView" class="area-view">
+        <div id="iСhoiceGasStationsHeaderView" class="page-title">
+          <h1 class="center">Выбор АЗС</h1>
+        </div>
+        
+        <div id="iChoiceGasStationsItems" class="list-items">
+          <div class="scroll-pane">
+            <a href="#iChoiceTrcPageView" id="iGeneratedId0" class="cCommonLink">02004 АЗС 4 Аэропорт</a>
+            <a href="#iChoiceTrcPageView" id="iGeneratedId1" class="cCommonLink">02131 АЗС С.Кувыкина</a>
+            <a href="#iChoiceTrcPageView" id="iGeneratedId2" class="cCommonLink">АЗС 65535</a>
+            <a href="#iChoiceTrcPageView" id="iGeneratedId3" class="cCommonLink">АЗС 123</a>
+            <a href="#iChoiceTrcPageView" id="iGeneratedId4" class="cCommonLink">АЗС 124</a>
+            <a href="#iChoiceTrcPageView" id="iGeneratedId5" class="cCommonLink">АЗС № 523</a>
+            <a href="#iChoiceTrcPageView" id="iGeneratedId5" class="cCommonLink">АЗС № 524</a>
+            <a href="#iChoiceTrcPageView" id="iGeneratedId5" class="cCommonLink">АЗС № 525</a>
+            <a href="#iChoiceTrcPageView" id="iGeneratedId5" class="cCommonLink">АЗС № 526</a>
+          </div>
+        </div>
+			</div>
+    </div>
+    
+		<footer data-role="footer" data-position="fixed">
+			<a href="#" data-role="none" class="toggle-link close"></a>
+			<div id="iMainMenuView" data-role="controlgroup" class="buttons">
+				<a href="#" id="iGeneralMenuItem" class="filling active" data-role="button"><span class="icon"></span>Налив</a>
+				<a href="#" id="iAccauntsMenuItem" class="balance" data-role="button"><span class="icon"></span>Баланс</a>
+				<a href="#" id="iProfileMenuItem" class="setting" data-role="button"><span class="icon"></span>Настройки</a>
+				<a href="#" id="iCancelMenuItem" class="history" data-role="button"><span class="icon"></span>Отмена</a>
+			</div>
+		</footer>
+	</div>
+  
+	<div data-role="page" class="cNotFront" id="iChoiceTrcPageView">
+		<div data-role="content">
+			<div class="app-name app-name-page">
+				<img onclick="OnSwitchDebugAction();" src="images/logo.png" class="app-logo" width="25" height="25" valign="middle" />
+				Карманный<span class="thin">Кассир</span>
+			</div>
+
+			<div class="page-image-wrap">
+				<img src="images/page-image.jpg" class="page-image" width="640" />
+			</div>
+      
+			<div id="iChoiceTrcAreaView" class="area-view">
+        <div id="iChoiceTrcHeaderView" class="page-title">
+          <h1 class="left"><a href="#iChoiceGasStationsPageView" id="iGasGtationsSelected" class="cCommonLink" data-direction="reverse">02004 АЗС 4 Аэропорт</a></h1>
+        </div>
+        
+        <div id="iChoiceTrcItems" class="list-items">
+          <div class="scroll-pane">
+            <a href="#iSelectionPageView" id="iGeneratedId6" class="cCommonLink">№1<span></span></a>
+            <a href="#iSelectionPageView" id="iGeneratedId7" class="cCommonLink">№2<span></span></a>
+            <a href="#iSelectionPageView" id="iGeneratedId8" class="cCommonLink">№3<span></span></a>
+            <a href="#iSelectionPageView" id="iGeneratedId9" class="cCommonLink">№4<span></span></a>
+            <a href="#iSelectionPageView" id="iGeneratedId10" class="cCommonLink">№5<span></span></a>
+            <a href="#iSelectionPageView" id="iGeneratedId11" class="cCommonLink">№6<span></span></a>
+            <a href="#iSelectionPageView" id="iGeneratedId12" class="cCommonLink">№7<span></span></a>
+            <a href="#iSelectionPageView" id="iGeneratedId13" class="cCommonLink">№8<span></span></a>
+            <a href="#iSelectionPageView" id="iGeneratedId14" class="cCommonLink">№9<span></span></a>
+            <a href="#iSelectionPageView" id="iGeneratedId15" class="cCommonLink">№10<span></span></a>
+            <a href="#iSelectionPageView" id="iGeneratedId16" class="cCommonLink">№11<span></span></a>
+            <a href="#iSelectionPageView" id="iGeneratedId17" class="cCommonLink">№12<span></span></a>
+            <a href="#iSelectionPageView" id="iGeneratedId15" class="cCommonLink">№13<span></span></a>
+            <a href="#iSelectionPageView" id="iGeneratedId16" class="cCommonLink">№14<span></span></a>
+            <a href="#iSelectionPageView" id="iGeneratedId17" class="cCommonLink">№15<span></span></a>
+            <a href="#iSelectionPageView" id="iGeneratedId17" class="cCommonLink">№16<span></span></a>
+          </div>
+        </div>
+			</div>
+    </div>
+    
+		<footer data-role="footer" data-position="fixed">
+			<a href="#" data-role="none" class="toggle-link close"></a>
+			<div id="iMainMenuView" data-role="controlgroup" class="buttons">
+				<a href="#" id="iGeneralMenuItem" class="filling active" data-role="button"><span class="icon"></span>Налив</a>
+				<a href="#" id="iAccauntsMenuItem" class="balance" data-role="button"><span class="icon"></span>Баланс</a>
+				<a href="#" id="iProfileMenuItem" class="setting" data-role="button"><span class="icon"></span>Настройки</a>
+				<a href="#" id="iCancelMenuItem" class="history" data-role="button"><span class="icon"></span>Отмена</a>
+			</div>
+		</footer>
+	</div>
+  
+	<div data-role="page" class="cNotFront" id="iSelectionPageView">
+		<div data-role="content">
+			<div class="app-name app-name-page">
+				<img onclick="OnSwitchDebugAction();" src="images/logo.png" class="app-logo" width="25" height="25" valign="middle" />
+				Карманный<span class="thin">Кассир</span>
+			</div>
+
+			<div class="page-image-wrap">
+				<img src="images/page-image.jpg" class="page-image" width="640" />
+			</div>
+      
+			<div id="iSelectionAreaView" class="">
+        <div id="iSelectionHeaderView" class="page-title">
+          <h1 class="left">Залив топлива</h1>
+          <a href="#" id="iFullCompleteLink" class="cCommonLink">До полного <span class="arrow">&rsaquo;</span></a>
+        </div>
+        <div id="iFuelValueAndFundsResource" class="">
+          <div id="iFuelValueAndFundsTabs" class="tabs">
+            <a href="#" id="iFuelValueTab">Литры</a>
+            <a href="#" id="iFundsTab" class="active">Рубли</a>
+          </div>
+          
+          <div id="iGasGtationsAndTrcSelected">
+            <span>№5</span> <img src="images/gas-stations-logo.jpg" id="iGasStationsSelectedLogo" /> <span>АИ-95</span>
+          </div>
+          
+          <form class="cBasketForm" method="post" action="#iIndexPageView" onsubmit="return false;" accept-charset="UTF-8">
+            <div id="iFuelValueTabContent" class="tab-content">
+              <input type="text" id="iFuelValue" value="35" size="5" maxlength="8" class="text" spellcheck="false" autocapitalize="none" autocorrect="off" />
+              <button id="iFuelValueInc" data-role="button" class="button-inc-dec">&and;</button>
+              <button id="iFuelValueDec" data-role="button" class="button-inc-dec">&or;</button>
+            </div>
+            <div id="iFundsTabContent" class="tab-content active">
+              <input type="text" id="iFunds" value="3900" size="5" maxlength="8" class="text" spellcheck="false" autocapitalize="none" autocorrect="off" />
+              <button id="iFundsInc" data-role="button" class="button-inc-dec">&and;</button>
+              <button id="iFundsDec" data-role="button" class="button-inc-dec">&or;</button>
+            </div>
+            <br />
+            
+            <div id="iFuelValueAndFundsLogo">
+              <img id="euro5LogoImage" class="item-logo" src="images/euro5Logo.jpg" width="50" height="41" />
+              <img id="rubLogoImage" class="item-logo active" src="images/rubLogo.jpg" width="30" height="40" />
+            </div>
+            <div id="iFuelValueAndFundsDesc">
+              <div id="iFundsDesc" class="desc-item active">= 100 литров</div>
+              <div id="iFuelValueDesc" class="desc-item">= 3900 рублей</div>
+              <div>+ 370 баллов</div>
+            </div>
+            <button id="cBasketFormSubmit" data-role="button" class="button-more button-submit">Начать налив</button>
+          </form>
+        </div>
+        <div class="iBonusInfoView">Бонусы друзьям и вам</div>
+			</div>
+    </div>
+    
+		<footer data-role="footer" data-position="fixed">
+			<a href="#" data-role="none" class="toggle-link close"></a>
+			<div id="iMainMenuView" data-role="controlgroup" class="buttons">
+				<a href="#" id="iGeneralMenuItem" class="filling active" data-role="button"><span class="icon"></span>Налив</a>
+				<a href="#" id="iAccauntsMenuItem" class="balance" data-role="button"><span class="icon"></span>Баланс</a>
+				<a href="#" id="iProfileMenuItem" class="setting" data-role="button"><span class="icon"></span>Настройки</a>
+				<a href="#" id="iCancelMenuItem" class="history" data-role="button"><span class="icon"></span>Отмена</a>
+			</div>
+		</footer>
+	</div>
+  
+	<div data-role="page" class="cNotFront" id="iRecourcePageView">
+
+		<div id="iStartAreaView" class="cView"></div>
+		<div id="iRegistrationAreaView" class="cView"></div>
+		<div id="iRegestryMenuItem" class="cView"></div>
+
+		<!-- cResourceContainer start -->
+		<div class="cResourceContainer">
+
+			<div id="iWaitSpinnerResource">
+				<img class="cWaitSpinnerImage" src="images/ajax-loader.gif" width="32" height="32" />
+			</div>
+
+			<div id="iLockUiDialogResource">See css</div>
+
+			<div id="iGasStationResource" class="cView">
+				<div class="location">
+					<div class="text light">Вы находитесь на</div>
+					<div class="text medium">АЗС Lukoil № _GasStationName_</div>
+					<div class="text medium">Колонка № _FuelingPointNumber_</div>
+				</div>
+
+			</div>
+
+			<div id="iMessageResource" class="cView">
+				<h1>_Header_</h1>
+				<font>_Text_</font>
+			</div>
+
+			<div id="iLinkResource" class="cView">
+				<a href="#" id="_NewId_" class="cCommonLink">_Text_</a>
+			</div>
+
+			<div id="iButtonResource" class="cView">
+				<br /><button id="_NewId_" class="button-more ui-btn ui-shadow ui-corner-all" data-role="button">_Text_</button>
+			</div>
+
+			<div id="iTableResource" class="cView">
+				_Element_
+			</div>
+
+			<div id="iFuelResource" class="cView">
+				Топливо: _FuelName_<br><div id="iFuelPriceKop">Цена: _FuelPriceKop_ р.</div><br>Объем: _FuelValueMl_ л<br>Стоимость: _FundsKop_ р.
+			</div>
+
+			<div id="iFuelValueAndFundsResource" class="cView">
+				<form class="cBasketForm" method="post" action="#iIndexPageView" onsubmit="return false;" accept-charset="UTF-8">
+					<font>Объем:<br></font>
+					<button id="iFuelValueInc" data-role="button" class="button-more">+</button>
+					<button id="iFuelValueDec" data-role="button" class="button-more">-</button>
+					<input type="text" id="iFuelValue" value="_FuelValueLit_" size="5" maxlength="8" class="text" spellcheck="false" autocapitalize="none" autocorrect="off" /><font> л</font><br>
+					<font>Стоимость:</font><br>
+					<button id="iFundsInc" data-role="button" class="button-more">+</button>
+					<button id="iFundsDec" data-role="button" class="button-more">-</button>
+					<input type="text" id="iFunds" value="_FundsRub_" size="5" maxlength="8" class="text" spellcheck="false" autocapitalize="none" autocorrect="off" /><font> р.</font><br>
+				</form>
+			</div>
+		</div>
+		<!-- cResourceContainer end -->
+	</div>
+
+	<!-- Hidden forms zone start -->
+	<form id="iRobokassaForm" class="cHiddenForm" action='https://auth.robokassa.ru/Merchant/Index.aspx' method=POST>
+		<input id="iRobokassaLogin" type=hidden name=MrchLogin>
+		<input id="iRobokassaSum" type=hidden name=OutSum>
+		<input id="iRobokassaId" type=hidden name=InvId>
+		<input id="iRobokassaDesc" type=hidden name=Desc>
+		<input id="iRobokassaSignature" type=hidden name=SignatureValue>
+	</form>
+	<form id="iRobokassaFormW" class="cHiddenForm" action='https://auth.robokassa.ru/Merchant/Index.aspx' method=POST target="_blank">
+		<input id="iRobokassaLoginW" type=hidden name=MrchLogin>
+		<input id="iRobokassaSumW" type=hidden name=OutSum>
+		<input id="iRobokassaIdW" type=hidden name=InvId>
+		<input id="iRobokassaDescW" type=hidden name=Desc>
+		<input id="iRobokassaSignatureW" type=hidden name=SignatureValue>
+	</form>
+	<!-- Hidden forms zone end -->
+
+	<!-- cLockUi start -->
+	<div id="iLockUiView" class="cLockUi"></div>
+	<!-- cLockUi end -->
+
+	<!-- #iDebugOutput start -->
+	<div id="iDebugOutput" class="cView">
+		<pre id="iDebugOutputStream"></pre>
+	</div>
+	<!-- #iDebugOutput end -->
+
+</body>
+</html>

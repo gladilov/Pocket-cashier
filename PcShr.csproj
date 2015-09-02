@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <ProjectGuid>{95C5AE93-9C1A-4CC2-863A-860F5E63759D}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <OutputPath>bin</OutputPath>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <TypeScriptToolsVersion>1.5</TypeScriptToolsVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="css\colors.css" />
+    <Content Include="css\general.css" />
+    <Content Include="css\style.css" />
+    <Content Include="fonts\fonts.css" />
+    <Content Include="fonts\HelveticaNeueCyr-Bold.svg" />
+    <Content Include="fonts\HelveticaNeueCyr-Light.svg" />
+    <Content Include="fonts\HelveticaNeueCyr-Medium.svg" />
+    <Content Include="fonts\HelveticaNeueCyr-Roman.svg" />
+    <Content Include="fonts\HelveticaNeueCyr-Thin.svg" />
+    <Content Include="PhaseOne\css\colors.css" />
+    <Content Include="PhaseOne\css\fonts.css" />
+    <Content Include="PhaseOne\css\style.css" />
+    <Content Include="images\bg-page.jpg" />
+    <Content Include="images\footer-icons-active.png" />
+    <Content Include="images\footer-icons.png" />
+    <Content Include="images\footer-toggle-link-down.png" />
+    <Content Include="images\footer-toggle-link-up.png" />
+    <Content Include="images\ico-mail.png" />
+    <Content Include="images\ico-pass.png" />
+    <Content Include="images\icon\apple-touch-icon-120x120.png" />
+    <Content Include="images\icon\apple-touch-icon-152x152.png" />
+    <Content Include="images\icon\apple-touch-icon-60x60.png" />
+    <Content Include="images\icon\apple-touch-icon-76x76.png" />
+    <Content Include="index.html" />
+    <Content Include="images\icon\icon-36x36.png" />
+    <Content Include="images\icon\icon-48x48.png" />
+    <Content Include="images\icon\icon-72x72.png" />
+    <Content Include="images\icon\icon-96x96.png" />
+    <Content Include="images\icon\web-icon-128x128.png" />
+    <Content Include="images\icon\web-icon-196x196.png" />
+    <Content Include="images\location.png" />
+    <Content Include="images\logo.png" />
+    <Content Include="images\page-image.jpg" />
+    <Content Include="images\startup-image\apple-touch-startup-image-320x460.png" />
+    <Content Include="images\startup-image\apple-touch-startup-image-640x1096.png" />
+    <Content Include="images\startup-image\apple-touch-startup-image-640x920.png" />
+    <Content Include="new-index.html" />
+    <Content Include="js\accounts.js" />
+    <Content Include="js\animation.js" />
+    <Content Include="js\common.js" />
+    <Content Include="js\debug.js" />
+    <Content Include="js\external\jquery.blockUI.js" />
+    <Content Include="PhaseZero\js\goods.js" />
+    <Content Include="js\login.js" />
+    <Content Include="js\robokassa_controller.js" />
+    <Content Include="js\script.js" />
+    <Content Include="PhaseZero\js\trade.js" />
+    <Content Include="js\ui.js" />
+    <Content Include="js\widget.js" />
+    <Content Include="js\widgets\robokassa.js" />
+    <Content Include="images\robokassa.png" />
+    <Content Include="images\ajax-loader.gif" />
+    <Content Include="web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\HelveticaNeueCyr-Bold.eot" />
+    <Content Include="fonts\HelveticaNeueCyr-Bold.otf" />
+    <Content Include="fonts\HelveticaNeueCyr-Bold.ttf" />
+    <Content Include="fonts\HelveticaNeueCyr-Bold.woff" />
+    <Content Include="fonts\HelveticaNeueCyr-Bold.woff2" />
+    <Content Include="fonts\HelveticaNeueCyr-Light.eot" />
+    <Content Include="fonts\HelveticaNeueCyr-Light.otf" />
+    <Content Include="fonts\HelveticaNeueCyr-Light.ttf" />
+    <Content Include="fonts\HelveticaNeueCyr-Light.woff" />
+    <Content Include="fonts\HelveticaNeueCyr-Light.woff2" />
+    <Content Include="fonts\HelveticaNeueCyr-Medium.eot" />
+    <Content Include="fonts\HelveticaNeueCyr-Medium.otf" />
+    <Content Include="fonts\HelveticaNeueCyr-Medium.ttf" />
+    <Content Include="fonts\HelveticaNeueCyr-Medium.woff" />
+    <Content Include="fonts\HelveticaNeueCyr-Medium.woff2" />
+    <Content Include="fonts\HelveticaNeueCyr-Roman.eot" />
+    <Content Include="fonts\HelveticaNeueCyr-Roman.otf" />
+    <Content Include="fonts\HelveticaNeueCyr-Roman.ttf" />
+    <Content Include="fonts\HelveticaNeueCyr-Roman.woff" />
+    <Content Include="fonts\HelveticaNeueCyr-Roman.woff2" />
+    <Content Include="fonts\HelveticaNeueCyr-Thin.eot" />
+    <Content Include="fonts\HelveticaNeueCyr-Thin.otf" />
+    <Content Include="fonts\HelveticaNeueCyr-Thin.ttf" />
+    <Content Include="fonts\HelveticaNeueCyr-Thin.woff" />
+    <Content Include="fonts\HelveticaNeueCyr-Thin.woff2" />
+    <None Include="web.Debug.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+    <None Include="web.Release.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="PhaseZero\ts\GoodCursor.ts" />
+    <TypeScriptCompile Include="PhaseZero\ts\GoodsList.ts" />
+    <TypeScriptCompile Include="ts\LukStates\2-MLukNozzleAwaiting\Model.ts" />
+    <TypeScriptCompile Include="ts\LukStates\2-MLukNozzleAwaiting\State.ts" />
+    <TypeScriptCompile Include="ts\LukStates\2-MLukNozzleAwaiting\ViewModel.ts" />
+    <TypeScriptCompile Include="ts\LukStates\3-MLukCostOrVolumeChoice\Model.ts" />
+    <TypeScriptCompile Include="ts\LukStates\3-MLukCostOrVolumeChoice\ViewModel.ts" />
+    <TypeScriptCompile Include="ts\LukStates\4-MLukCostOrVolumeAwaiting\Model.ts" />
+    <TypeScriptCompile Include="ts\LukStates\4-MLukCostOrVolumeAwaiting\ViewModel.ts" />
+    <TypeScriptCompile Include="ts\LukStates\5_MLukPayAndShip\Model.ts" />
+    <TypeScriptCompile Include="ts\LukStates\5_MLukPayAndShip\ViewModel.ts" />
+    <TypeScriptCompile Include="ts\LukStates\6-MLukPayByInvoice\Model.ts" />
+    <TypeScriptCompile Include="ts\LukStates\6-MLukPayByInvoice\ViewModel.ts" />
+    <TypeScriptCompile Include="ts\LukStates\7_MLukShipmentStarted\Model.ts" />
+    <TypeScriptCompile Include="ts\LukStates\7_MLukShipmentStarted\ViewModel.ts" />
+    <TypeScriptCompile Include="ts\LukStates\8_MLukDone\Model.ts" />
+    <TypeScriptCompile Include="ts\LukStates\8_MLukDone\ViewModel.ts" />
+    <TypeScriptCompile Include="ts\LukStates\9_MLukEnd\Model.ts" />
+    <TypeScriptCompile Include="ts\LukStates\9_MLukEnd\ViewModel.ts" />
+    <TypeScriptCompile Include="ts\LukStates\LukMvvm.ts" />
+    <TypeScriptCompile Include="ts\LukStates\EventTypes.ts" />
+    <TypeScriptCompile Include="ts\LukStates\LukView.ts" />
+    <TypeScriptCompile Include="ts\LukStates\_-MLukErrorAndRepeat\Model.ts" />
+    <TypeScriptCompile Include="ts\LukStates\_-MLukErrorAndRepeat\ViewModel.ts" />
+    <TypeScriptCompile Include="ts\LukStates\_-MLukErrorAndContinue\Model.ts" />
+    <TypeScriptCompile Include="ts\LukStates\_-MLukErrorAndContinue\ViewModel.ts" />
+    <TypeScriptCompile Include="ts\LukStates\_-InformMessageAndRequest\Model.ts" />
+    <TypeScriptCompile Include="ts\LukStates\_-InformMessageAndRequest\ViewModel.ts" />
+    <TypeScriptCompile Include="ts\LukStates\_-InformMessage\Model.ts" />
+    <TypeScriptCompile Include="ts\LukStates\_-InformMessage\VIewModel.ts" />
+    <TypeScriptCompile Include="ts\LukStates\0-MLukBegin\Model.ts" />
+    <TypeScriptCompile Include="ts\LukStates\0-MLukBegin\ViewModel.ts" />
+    <TypeScriptCompile Include="ts\LukStates\1-MLukSideChoice\Model.ts" />
+    <TypeScriptCompile Include="ts\LukStates\1-MLukSideChoice\ViewModel.ts" />
+    <TypeScriptCompile Include="ts\LukStates\LukStateMachine.ts" />
+    <TypeScriptCompile Include="ts\Mvvm.ts" />
+    <TypeScriptCompile Include="ts\Observer.ts" />
+    <TypeScriptCompile Include="ts\ResourceString.ts" />
+    <TypeScriptCompile Include="ts\Rest.ts" />
+    <TypeScriptCompile Include="ts\State.ts" />
+    <TypeScriptCompile Include="ts\BaseUI.ts" />
+    <TypeScriptCompile Include="ts\MvvmState.ts" />
+    <TypeScriptCompile Include="ts\Tools.ts" />
+    <TypeScriptCompile Include="ts\_Declare.ts" />
+    <TypeScriptCompile Include="UnitTests\ResourceStringTests.ts" />
+    <TypeScriptCompile Include="UnitTests\ObserverTests.ts" />
+    <TypeScriptCompile Include="UnitTests\StateTests.ts" />
+    <TypeScriptCompile Include="UnitTests\TestCases.ts" />
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>PcShr</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\WebApplications\Microsoft.WebApplication.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\WebApplications\Microsoft.WebApplication.targets')" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>9975</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:9117/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <TypeScriptRemoveComments>false</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>true</TypeScriptSourceMap>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <TypeScriptRemoveComments>true</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>false</TypeScriptSourceMap>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+</Project>

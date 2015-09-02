@@ -1,0 +1,675 @@
+/* Fonts rules */
+@import "../fonts/fonts.css";
+@import "general.css";
+@import "colors.css";
+/* Content scroll */
+@import "jquery.jscrollpane.css";
+
+html
+{
+	-webkit-text-size-adjust: 100%;
+}
+
+body
+{
+	font-size: 5px;
+}
+
+.cLukGwr
+{
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	z-index: -1;
+	background: url(../images/bg-page.jpg) 50% 0 no-repeat fixed;
+	-webkit-background-size: cover;
+	background-size: cover;
+}
+
+.ui-page
+{
+	overflow: hidden;
+	-webkit-backface-visibility: hidden;
+}
+
+.not-front .ui-page
+{
+	-webkit-backface-visibility: hidden;
+}
+.ui-page.ui-page-footer-fixed {
+  padding-bottom: 0 !important;
+}
+.ui-content
+{
+	text-align: center;
+	max-width: 320px;
+	margin: 0 auto;
+	padding: 15px 10px;
+}
+
+.ui-content .app-logo
+{
+	display: inline-block;
+}
+
+.ui-content .app-logo-front
+{
+	margin-top: 25px;
+}
+
+.ui-content .app-name-front
+{
+	margin-top: 30px;
+	font-family: 'Helvetica Neue Cyr Medium', sans-serif;
+	font-size: 5.0em;
+	text-transform: uppercase;
+}
+
+.ui-content .app-name-page
+{
+	font-family: 'Helvetica Neue Cyr Medium', sans-serif;
+	font-size: 5.0em;
+	font-size: 3.4em;
+	text-transform: uppercase;
+}
+
+.ui-content .app-name span.thin
+{
+	font-family: 'Helvetica Neue Cyr Thin', sans-serif;
+}
+
+.ui-content .page-image-wrap
+{
+	margin: 15px -10px 0 -10px;
+}
+
+.ui-content .page-image-wrap img
+{
+	display: block;
+	max-width: 100%;
+}
+
+.ui-content .form-account-name
+{
+	margin-top: 20px;
+	font-family: 'Helvetica Neue Cyr Thin', sans-serif;
+	font-size: 4.6em;
+}
+
+.ui-content .form-account
+{
+	width: 260px;
+	margin: 25px auto 0;
+}
+
+.ui-content .form-account .form-item-wrap
+{
+	padding: 10px 0 10px 40px;
+	border-bottom: 1px solid rgba(255,255,255,0.5);
+}
+
+.ui-content .form-account .form-item-wrap.mail
+{
+	background: url(../images/ico-mail.png) 5px 50% no-repeat;
+}
+
+.ui-content .form-account .form-item-wrap.pass
+{
+	background: url(../images/ico-pass.png) 5px 50% no-repeat;
+}
+
+.ui-content .form-account .form-item,
+.ui-content .form-account .ui-field-contain
+{
+	text-align: left;
+	padding: 0;
+}
+
+.ui-content .form-account .form-item-pass:first-child
+{
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid rgba(255,255,255,0.5);
+}
+
+.ui-content .form-account input[type='text'],
+.ui-content .form-account input[type='password']
+{
+	display: block;
+	width: 100%;
+	font-size: 3.2em;
+	background: none;
+	border: 0;
+	-webkit-appearance: none;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+	outline: none;
+}
+
+.ui-content .form-account .form-actions
+{
+	margin-top: 40px;
+}
+
+.ui-content .form-account .form-actions input[type='button'],
+.ui-content .form-account .form-actions input[type='submit']
+{
+	display: block;
+	width: 100%;
+	padding: 8px 0;
+	font-family: 'Helvetica Neue Cyr Bold', sans-serif;
+	font-size: 3.6em;
+	text-align: center;
+	background: none;
+	border: 1px solid rgba(255,255,255,0.5);
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+	cursor: pointer;
+}
+
+.ui-content .text
+{
+	margin-top: 20px;
+	font-size: 2.8em;
+}
+
+.ui-content .text.big
+{
+	font-size: 3.6em;
+}
+
+.ui-content .text.light
+{
+	font-family: 'Helvetica Neue Cyr Light', sans-serif;
+}
+
+.ui-content .text.medium
+{
+	font-family: 'Helvetica Neue Cyr Medium', sans-serif;
+}
+
+.ui-content .text.bonus
+{
+	margin-top: 20px;
+	font-size: 2.6em;
+}
+
+.ui-content .location
+{
+	width: 180px;
+	margin: 20px auto 0;
+	padding-left: 50px;
+	background: url(../images/location.png) 10px 50% no-repeat;
+	font-size: 7px;
+}
+
+.ui-content .location .text
+{
+	margin-top: 0;
+}
+
+.ui-content .animation
+{
+	margin-top: 20px;
+}
+
+.ui-content .button-more
+{
+	display: block;
+	width: 180px;
+	margin: 20px auto 0;
+	padding: 8px 0;
+	font-family: 'Helvetica Neue Cyr Roman', sans-serif;
+	font-size: 3.6em;
+	text-align: center;
+	background: none;
+	border: 1px solid #007AFF;
+	color: #007AFF;
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+	cursor: pointer;
+}
+
+.ui-content .button-more:hover,
+.ui-content .button-more:focus
+{
+	background: none;
+	border: 1px solid #007AFF;
+}
+
+.ui-footer {
+  background-color: #fff !important;
+	border: 0 !important;
+	text-shadow: none !important;
+	text-align: center !important;
+	font-weight: normal !important;
+}
+.cFront .ui-footer {
+	background: none !important;
+}
+
+.footer-text
+{
+	padding: 10px 0;
+	font-family: 'Helvetica Neue Cyr Light', sans-serif;
+	font-size: 1.6em;
+}
+
+.footer-text .bold
+{
+	font-family: 'Helvetica Neue Cyr Bold', sans-serif;
+	text-decoration: underline;
+}
+
+.ui-footer .toggle-link
+{
+	width: 20px;
+	height: 13px;
+	position: absolute;
+	left: 50%;
+	margin-top: -13px;
+	margin-left: -10px;
+	background: #EF172E url(../images/footer-toggle-link-up.png) 50% 50% no-repeat;
+	outline: none;
+	text-decoration: none;
+}
+
+.ui-footer .toggle-link.close
+{
+	background: #EF172E url(../images/footer-toggle-link-down.png) 50% 50% no-repeat;
+}
+
+.ui-footer .toggle-link.open
+{
+	background: #EF172E url(../images/footer-toggle-link-up.png) 50% 50% no-repeat;
+}
+
+.ui-footer .buttons,
+.ui-footer .buttons .ui-controlgroup-controls
+{
+	margin: 0;
+	padding: 0;
+	background: 0;
+}
+
+.ui-footer .buttons
+{
+	margin: 0;
+	padding: 0;
+	background: 0;
+	font-size: 5px;
+	border-top: 1px solid #B2B2B2;
+}
+
+.ui-footer .buttons .ui-link
+{
+	position: relative;
+	padding: 27px 15px 0;
+	font-family: 'Helvetica Neue Cyr Roman', sans-serif;
+	font-size: 2.2em;
+	font-weight: normal;
+	text-decoration: none;
+	border: 0;
+	background: none;
+	outline: none;
+}
+
+.ui-footer .buttons .ui-link .icon
+{
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	top: 5px;
+	left: 50%;
+	margin-left: -10px;
+	background: url(../images/footer-icons.png) 50% 0 no-repeat;
+}
+
+.ui-footer .buttons .ui-link.filling .icon
+{
+	background-position: 50% 0;
+}
+
+.ui-footer .buttons .ui-link.balance .icon
+{
+	background-position: 50% -20px;
+}
+
+.ui-footer .buttons .ui-link.history .icon
+{
+	background-position: 50% -40px;
+}
+
+.ui-footer .buttons .ui-link.setting .icon
+{
+	background-position: 50% -60px;
+}
+
+.ui-footer .buttons .ui-link.active .icon
+{
+	background-image: url(../images/footer-icons-active.png);
+}
+
+.cFront .ui-link
+{
+	text-shadow: none;
+}
+
+.cFront .cLink
+{
+	display: block;
+	padding: 20px 0px 10px 0px;
+}
+
+
+.ui-content .page-title {
+  position: relative;
+  margin: 0 -10px 8px -10px;
+  padding: 18px 10px 4px;
+  background-color: #F7F7F7;
+  box-shadow: 0 1px 1px 0 rgba(0,0,0,.2);
+}
+.ui-content .page-title h1 {
+  margin: 0;
+  font-family: 'Helvetica Neue Cyr Light', sans-serif;
+  font-size: 18px;
+  color: #929292;
+  font-weight: normal;
+}
+.ui-content .page-title h1.left {
+  text-align: left;
+}
+.ui-content .page-title h1.center {
+  text-align: center;
+}
+.ui-content .page-title h1.right {
+  text-align: right;
+}
+.ui-content .button-submit,
+.ui-content .button-cancel {
+  width: auto;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.iBonusInfoView {
+  margin-top: 20px;
+  font-family: 'Helvetica Neue Cyr Light', sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 1;
+  text-align: center;
+  color: #929292;
+}
+/* Content scroll */
+.scroll-pane .jspPane {}
+.scroll-pane .jspVerticalBar, .scroll-pane .jspTrack {width: 6px; background: none;}
+.scroll-pane .jspDrag {background: #4479FB; border-radius: 3px;}
+
+
+/* iChoiceGasStationsPageView */
+#iChoiceGasStationsItems {
+  margin-top: 20px;
+  margin-right: -8px;
+  height: 280px;
+  overflow: hidden;
+}
+#iChoiceGasStationsItems .scroll-pane {
+  height: 100%;
+  overflow: auto;
+}
+#iChoiceGasStationsItems a.cCommonLink {
+  padding: 0;
+  padding-left: 30px;
+  margin: 30px 0 30px 2px;
+  color: #B1B1B0;
+  text-decoration: underline;
+  font-family: 'Helvetica Neue Cyr Light', sans-serif;
+  font-size: 17px;
+  font-weight: normal;
+  font-style: normal;
+  text-align: left;
+  line-height: 1.1;
+}
+#iChoiceGasStationsItems a.cCommonLink:first-child {
+  margin-top: 5px;
+}
+#iChoiceGasStationsItems a.cCommonLink:last-child {
+  margin-bottom: 5px;
+}
+#iChoiceGasStationsItems a.cCommonLink:hover,
+#iChoiceGasStationsItems a.cCommonLink:active {
+  color: #4479FB;
+  font-weight: 700;
+  background: url(../images/ico-selected.png) 0 50% no-repeat;
+  text-decoration: none;
+}
+#iChoiceGasStationsPageView #iCancelMenuItem,
+#iChoiceGasStationsPageView #iGeneralMenuItem,
+#iChoiceGasStationsPageView #iAccauntsMenuItem,
+#iChoiceGasStationsPageView #iProfileMenuItem {
+  display: inline-block;
+}
+
+
+/* iChoiceTrcPageView */
+#iGasGtationsSelected {
+  padding: 0;
+  padding-left: 16px;
+  text-align: left;
+  color: #4479FB;
+  text-decoration: underline;
+  font-family: 'Helvetica Neue Cyr Roman', sans-serif;
+  font-size: 17px;
+  font-weight: normal;
+  font-style: normal;
+  text-align: left;
+  line-height: 1.1;
+  background: url(../images/ico-arrow-left.png) 0 50% no-repeat;
+}
+#iGasGtationsSelected .arrow {
+  font-size: 17px;
+  font-family: sans-serif;
+  line-height: 1;
+}
+#iChoiceTrcItems {
+  margin-right: -8px;
+  height: 298px;
+}
+#iChoiceTrcItems .scroll-pane {
+  height: 100%;
+  overflow: auto;
+}
+#iChoiceTrcItems:after,
+#iChoiceTrcItems:before {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+#iChoiceTrcItems a.cCommonLink {
+  position: relative;
+  float: left;
+  width: 72px;
+  height: 41px;
+  padding: 20px 40px 0 0;
+  margin: 15px 13px;
+  color: #B1B1B0;
+  text-decoration: none;
+  font-family: 'Helvetica Neue Cyr Light', sans-serif;
+  font-size: 17px;
+  font-weight: normal;
+  font-style: normal;
+  text-align: left;
+  line-height: 1.1;
+  background: url(../images/ico-gas-stations-sprite.png) 100% 0 no-repeat;
+  box-sizing: border-box;
+  z-index: 9;
+}
+#iChoiceTrcItems a.cCommonLink:hover,
+#iChoiceTrcItems a.cCommonLink:active {
+  color: #4479FB;
+  background: url(../images/ico-gas-stations-sprite.png) 100% -41px no-repeat;
+}
+#iChoiceTrcItems a.cCommonLink > span {
+  display: none;
+  position: absolute;
+  bottom: -1px;
+  right: -1px;
+  width: 18px;
+  height: 18px;
+  background: url(../images/ico-selected.png) 0 0 no-repeat;
+  z-index: 10;
+}
+#iChoiceTrcItems a.cCommonLink:hover > span,
+#iChoiceTrcItems a.cCommonLink:active > span {
+  display: block;
+}
+#iChoiceTrcPageView #iCancelMenuItem,
+#iChoiceTrcPageView #iGeneralMenuItem,
+#iChoiceTrcPageView #iAccauntsMenuItem,
+#iChoiceTrcPageView #iProfileMenuItem {
+  display: inline-block;
+}
+
+
+/* iSelectionPageView */
+#iSelectionAreaView {
+  text-align: left;
+}
+#iSelectionAreaView #iSelectionHeaderView .cCommonLink {
+  position: absolute;
+  bottom: 5px;
+  right: 10px;
+  font-family: 'Helvetica Neue Cyr Bold', sans-serif;
+  font-style: normal;
+  padding: 0;
+  color: #4479FB;
+}
+#iSelectionAreaView #iSelectionHeaderView .cCommonLink .arrow {
+  font-size: 16px;
+  font-family: sans-serif;
+  line-height: 1;
+}
+#iSelectionAreaView #iFuelValueAndFundsTabs {
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+#iSelectionAreaView .tabs a {
+  color: #929292;
+  margin-right: 8px;
+  font-family: 'Helvetica Neue Cyr Light', sans-serif;
+  font-size: 17px;
+  font-weight: normal;
+}
+#iSelectionAreaView .tabs a.active {
+  color: #000;
+  font-family: 'Helvetica Neue Cyr Medium', sans-serif;
+  font-size: 16px;
+}
+#iSelectionAreaView #iFuelValueAndFundsResource {
+  position: relative;
+}
+#iSelectionAreaView #iFuelValueAndFundsResource .cBasketForm {
+  position: relative;
+}
+#iSelectionAreaView #iFuelValueAndFundsResource .tab-content {
+  position: relative;
+  display: none;
+  width: 198px;
+}
+#iSelectionAreaView #iFuelValueAndFundsResource .tab-content.active {
+  display: block;
+}
+#iSelectionAreaView #iFuelValueAndFundsResource .cBasketForm .ui-input-text {
+  border: 0;
+  box-shadow: none;
+  margin: 0;
+}
+#iSelectionAreaView #iFuelValueAndFundsResource .cBasketForm input[type='text'] {
+  width: 180px;
+  height: 114px;
+  font-size: 82px;
+  margin: 0;
+  padding: 0;
+  font-family: 'Helvetica Neue Cyr Light', sans-serif;
+  min-height: 1em;
+  text-align: right;
+  color: #4479FB;
+  line-height: 1;
+}
+#iSelectionAreaView #iFuelValueAndFundsResource .cBasketForm input#iFuelValue {
+  font-size: 100px;
+}
+#iSelectionAreaView #iFuelValueAndFundsResource .cBasketForm .button-inc-dec {
+  position: absolute;
+  right: 0px;
+  top: 50%;
+  color: #4479FB;
+  margin: 0;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+  font-family: 'Helvetica Neue Cyr Light', sans-serif;
+  font-size: 12px;
+  line-height: 1;
+  border: 0;
+  background: none;
+  box-shadow: none;
+}
+#iSelectionAreaView #iFuelValueAndFundsResource .cBasketForm .button-inc-dec#iFundsInc,
+#iSelectionAreaView #iFuelValueAndFundsResource .cBasketForm .button-inc-dec#iFuelValueInc {
+  margin-top: -20px;
+}
+#iSelectionAreaView #iFuelValueAndFundsResource .cBasketForm #iFuelValueAndFundsLogo .item-logo {
+  display: none;
+}
+#iSelectionAreaView #iFuelValueAndFundsResource .cBasketForm #iFuelValueAndFundsLogo .item-logo.active {
+  display: block;
+}
+#iSelectionAreaView #iFuelValueAndFundsResource .cBasketForm #euro5LogoImage {
+  position: absolute;
+  top: 16px;
+  left: 205px;
+}
+#iSelectionAreaView #iFuelValueAndFundsResource .cBasketForm #rubLogoImage {
+  position: absolute;
+  top: 18px;
+  left: 203px;
+  opacity: .8;
+}
+#iSelectionAreaView #iFuelValueAndFundsResource .cBasketForm #iFuelValueAndFundsDesc {
+  position: absolute;
+  top: 65px;
+  left: 205px;
+  font-family: 'Helvetica Neue Cyr Medium', sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.1;
+}
+#iSelectionAreaView #iFuelValueAndFundsResource #iFuelValueAndFundsDesc .desc-item {
+  display: none;
+}
+#iSelectionAreaView #iFuelValueAndFundsResource #iFuelValueAndFundsDesc .desc-item.active {
+  display: block;
+}
+#iSelectionAreaView #iFuelValueAndFundsResource #iGasGtationsAndTrcSelected {
+  position: absolute;
+  top: -21px;
+  right: 0;
+  font-family: 'Helvetica Neue Cyr Roman', sans-serif;
+  font-size: 16px;
+  color: #4479FB;
+}
+#iSelectionAreaView #iFuelValueAndFundsResource #iGasStationsSelectedLogo {
+  vertical-align: bottom;
+}
+#iSelectionPageView #iCancelMenuItem,
+#iSelectionPageView #iGeneralMenuItem,
+#iSelectionPageView #iAccauntsMenuItem,
+#iSelectionPageView #iProfileMenuItem {
+  display: inline-block;
+}
+
